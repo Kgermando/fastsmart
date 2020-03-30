@@ -7,4 +7,15 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'clientApp';
+  searchTerm = '';
+
+  get Token() {
+    return localStorage.getItem('token');
+  }
+
+  logout() {}
+
+  search() {
+    
+  }
 }
