@@ -1,14 +1,14 @@
 <section class="home_1">
   <mat-toolbar-row >
     <form  class="mat-elevation-z10">
-      <input type="search" name="search" class="search" placeholder="Search here">
-      <input type="submit" value="search" name="submit" class="submit" matTooltip="Cliquez ici pour rechercher">
+      <input type="search" name="search" class="search" placeholder="Recherche..." [(ngModel)]="searchTerm" (keyup.enter)="search()">
+      <input type="submit" value="search" name="submit" (click)="search()" class="submit" matTooltip="Cliquez ici pour rechercher">
     </form>
   </mat-toolbar-row>
 </section>
 
 <section class="home_2">
-  <h4>Gagnez du temps!! Voici les Sites Web les plus recherchés</h4>
+  <h4>Gagnez du temps!!! Voici les Sites Web les plus recherchés</h4>
  <hr>
 
   <div class="card_grid">
