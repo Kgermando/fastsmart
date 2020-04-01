@@ -5,7 +5,7 @@
         <mat-icon>menu</mat-icon>
       </button>
       <a routerLink="/layouts" mat-button matTooltip="Fast Smart">
-        <img src="../assets/img/logo.png" alt="logo fast smart" style="width: 150px; height: 50px;">
+        <img src="../assets/img/logo.png" alt="logo fast smart">
       </a>
       <!-- <span>FastSmart</span> -->
       <span class="menu-spacer"></span>
@@ -21,38 +21,43 @@
           <mat-icon aria-hidden="false" aria-label="Example home icon">send</mat-icon>
         </a>
       </div>
+      <div class="auth_cart">
+        <button mat-button [matMenuTriggerFor]="menu" matTooltip="Menu Authentification">
+          <mat-icon aria-hidden="false" aria-label="Example home icon">account_circle</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item routerLink="/auth/login" routerLinkActive="active-link">
+            <mat-icon aria-hidden="false" aria-label="login website">portrait</mat-icon>
+            Login
+          </button>
+          <button mat-menu-item routerLink="/auth/register" routerLinkActive="active-link">
+            <mat-icon aria-hidden="false" aria-label="déconnexion">person_add</mat-icon>
+            Créez un compte
+          </button>
+        </mat-menu>
 
-      <button mat-button [matMenuTriggerFor]="menu" matTooltip="Menu Authentification">
-        <mat-icon aria-hidden="false" aria-label="Example home icon">account_circle</mat-icon>
-      </button>
-      <mat-menu #menu="matMenu">
-        <button mat-menu-item routerLink="/auth/login" routerLinkActive="active-link">
-          <mat-icon aria-hidden="false" aria-label="login website">portrait</mat-icon>
-          Login
-        </button>
-        <button mat-menu-item routerLink="/auth/register" routerLinkActive="active-link">
-          <mat-icon aria-hidden="false" aria-label="déconnexion">person_add</mat-icon>
-          Créez un compte
-        </button>
-      </mat-menu>
+        <a routerLink="/layouts/cart" mat-button matTooltip="Votre Panier" routerLinkActive="active-link">
+          <mat-icon aria-hidden="false" aria-label="Example home icon">shopping_cart</mat-icon>
+        </a>
 
-      <a routerLink="/layouts/cart" mat-button matTooltip="Votre Panier" routerLinkActive="active-link">
-        <mat-icon aria-hidden="false" aria-label="Example home icon">shopping_cart</mat-icon>
-      </a>
+  <!-- <button mat-button [matMenuTriggerFor]="menu">
+          <mat-icon aria-hidden="false" aria-label="Example home icon">account_circle</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu" routerLink="/auth/login">
+          <button mat-menu-item>
+            <mat-icon aria-hidden="false" aria-label="login website">perm_identity</mat-icon>
+            Login
+          </button>
+          <button mat-menu-item routerLink="/auth/register">
+            <mat-icon aria-hidden="false" aria-label="deconnexion">exit_to_app</mat-icon>
+            Déconnexion
+          </button>
+        </mat-menu> -->
 
-      <!-- <button mat-button [matMenuTriggerFor]="menu">
-        <mat-icon aria-hidden="false" aria-label="Example home icon">account_circle</mat-icon>
-      </button>
-      <mat-menu #menu="matMenu" routerLink="/auth/login">
-        <button mat-menu-item>
-          <mat-icon aria-hidden="false" aria-label="login website">perm_identity</mat-icon>
-          Login
-        </button>
-        <button mat-menu-item routerLink="/auth/register">
-          <mat-icon aria-hidden="false" aria-label="deconnexion">exit_to_app</mat-icon>
-          Déconnexion
-        </button>
-      </mat-menu> -->
+      </div>
+        
+
+      
     </mat-toolbar-row>
   </mat-toolbar>
 

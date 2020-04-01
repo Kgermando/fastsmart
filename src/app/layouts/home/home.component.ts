@@ -15,6 +15,10 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  // detail(id) {
+  //   this.router.navigate(['/layouts/detail', id]);
+  // }
+
   get token(){
     return localStorage.getItem('token');
   }
@@ -27,7 +31,7 @@ export class HomeComponent implements OnInit {
 
   logout(){
     localStorage.clear();
-    this.router.navigate(['/layouts']);
+    this.router.navigate(['/layouts/home']);
   }
 
 }
