@@ -7,23 +7,22 @@
       <a routerLink="/layouts" mat-button matTooltip="Fast Smart">
         <img src="../assets/img/logo.png" alt="logo fast smart">
       </a>
-      <!-- <span>FastSmart</span> -->
       <span class="menu-spacer"></span>
       <div fxShow="true" fxHide.lt-md>
         <!-- The following menu items will be hidden on both SM and XS screen sizes -->
         <a routerLink="/layouts/home" mat-button matTooltip="Acceuil" routerLinkActive="active-link">
-          <mat-icon aria-hidden="false" aria-label="Example home icon">home</mat-icon>
+          <mat-icon aria-hidden="false" aria-label="Fast Smart acceuil">home</mat-icon>
         </a>
         <a routerLink="/layouts/category" mat-button matTooltip="Categories" routerLinkActive="active-link">
-          <mat-icon aria-hidden="false" aria-label="Example home icon">apps</mat-icon>
+          <mat-icon aria-hidden="false" aria-label="Fast Smart categories">apps</mat-icon>
         </a>
         <a routerLink="/layouts/contact" mat-button matTooltip="Contactez Nous ici" routerLinkActive="active-link">
-          <mat-icon aria-hidden="false" aria-label="Example home icon">send</mat-icon>
+          <mat-icon aria-hidden="false" aria-label="Fast Smart contact">send</mat-icon>
         </a>
       </div>
       <div class="auth_cart">
         <button mat-button [matMenuTriggerFor]="menu" matTooltip="Menu Authentification">
-          <mat-icon aria-hidden="false" aria-label="Example home icon">account_circle</mat-icon>
+          <mat-icon aria-hidden="false" aria-label="Fast Smart profile">account_circle</mat-icon>
         </button>
         <mat-menu #menu="matMenu">
           <button mat-menu-item routerLink="/auth/login" routerLinkActive="active-link">
@@ -37,7 +36,7 @@
         </mat-menu>
 
         <a routerLink="/layouts/cart" mat-button matTooltip="Votre Panier" routerLinkActive="active-link">
-          <mat-icon aria-hidden="false" aria-label="Example home icon">shopping_cart</mat-icon>
+          <mat-icon aria-hidden="false" aria-label="Fast Smart panier">shopping_cart</mat-icon>
         </a>
 
   <!-- <button mat-button [matMenuTriggerFor]="menu">
@@ -55,9 +54,6 @@
         </mat-menu> -->
 
       </div>
-        
-
-      
     </mat-toolbar-row>
   </mat-toolbar>
 
@@ -65,15 +61,15 @@
     <mat-sidenav #sidenav>
       <mat-nav-list>
         <a routerLink="/layouts/home" mat-list-item routerLinkActive="active-link">
-          <mat-icon aria-hidden="false" aria-label="Acceuil">home</mat-icon>
+          <mat-icon aria-hidden="false" aria-label="Fast Smart home">home</mat-icon>
           Acceuil
         </a>
         <a routerLink="/layouts/category" mat-list-item routerLinkActive="active-link">
-          <mat-icon aria-hidden="false" aria-label="category for website">apps</mat-icon>
+          <mat-icon aria-hidden="false" aria-label="Fast Smart panier category">apps</mat-icon>
           Categories
         </a>
         <a routerLink="/layouts/contact" mat-list-item routerLinkActive="active-link">
-          <mat-icon aria-hidden="false" aria-label="contactez nous">send</mat-icon>
+          <mat-icon aria-hidden="false" aria-label=" Fast Smart contactez nous">send</mat-icon>
           Contact
         </a>
       </mat-nav-list>

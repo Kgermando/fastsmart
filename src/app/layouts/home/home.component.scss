@@ -7,12 +7,6 @@
     margin: auto;
     margin-top: 100px;
 
-    // .home_1_title {
-    //   text-align: center;
-    //   color: white;
-    //   font-size: 25px;
-    // }
-
     .search {
       width: 80%;
       padding: 10px;
@@ -34,9 +28,6 @@
 }
 
 .home_2 {
-  margin-right: 5%;
-  margin-left: 5%;
-  margin-bottom: 5%;
 
   .home_2_tile {
     font-weight: 600;
@@ -50,6 +41,7 @@
     color: #3F51B5;
     overflow: visible;
     text-align: center;
+    align-items: center;
     height: 5px;
     width: 20%;
     align-items: center;
@@ -59,21 +51,22 @@
   hr:after {
       background: #fff;
       content: '§';
+      text-align: center;
       padding: 0 4px;
       position: relative;
       top: -13px;
   }
 
   .card_grid {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: flex-start;
 
     .example-card {
-      margin: 5px 5px 5px 35px;
-      max-width: 300px;
-      flex: 0 1 calc(33.3% - 32px);
+      margin-left: 16px;
+      margin-bottom: 15px;
+      max-width: 400px;
+
+      .add_panier {
+        float: right;
+      }
     }
     
   }
@@ -81,7 +74,7 @@
 }
 
 
-  /* Responsive Styles */
+
   @media screen and (max-width: 960px) {
     .home_1 {
       height: 250px;
@@ -144,23 +137,9 @@
           top: -13px;
       }
 
-      .card_grid {
-        display: flex;
-        flex-direction: column; // modile
-        // align-items: center;
-        flex: 1 3; // Desktop
-        justify-content: center;
-        margin-top: 16px;
-
-        .example-card {
-          margin: 10px 10px;
-          max-width: 400px;
-          flex: 0 1 calc(50% - 32px);
-        }
-
-      }
     }
   }
+
 
   @media screen and (max-width: 600px) {
     .home_1 {
@@ -224,20 +203,6 @@
           top: -13px;
       }
 
-      .card_grid {
-        display: flex;
-        flex-direction: column; 
-        flex: 1 3; // Desktop
-        justify-content: center;
-        margin-top: 16px;
-
-        .example-card {
-          margin: 10px 10px;
-          max-width: 400px;
-          margin-bottom: 32px;
-        }
-
-      }
     }
     
   }
