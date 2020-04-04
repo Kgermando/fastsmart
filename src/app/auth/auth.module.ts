@@ -7,6 +7,11 @@ import { RequestPasswordComponent } from './request-password/request-password.co
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+import { SharedModule } from '../shared/shared.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AuthService } from './services/auth.service';
+import { AdminGuard } from './services/guard/admin-guard.service';
+import { CanReadGuard } from './services/guard/can-read-guard.service';
 
 
 @NgModule({
@@ -14,7 +19,12 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
                 RegisterComponent, LoginComponent, ForgotPasswordComponent],
   imports: [
     CommonModule,
-    AuthRoutingModule
-  ]
+    AuthRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+
+    SharedModule
+  ],
+  providers: [AuthService, AdminGuard, CanReadGuard]
 })
 export class AuthModule { }

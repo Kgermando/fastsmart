@@ -1,1 +1,31 @@
-<p>login works!</p>
+<mat-card>
+    <mat-card-title>
+        <img src="/assets/img/fastsmart.png" alt="">
+    </mat-card-title>
+    <mat-card-content>
+        <form >
+            <p>
+                <mat-form-field>
+                <input type="text" matInput placeholder="Username" formControlName="username">
+                </mat-form-field>
+            </p>
+
+            <p>
+                <mat-form-field>
+                <input type="password" matInput placeholder="Password" formControlName="password">
+                </mat-form-field>
+            </p>
+
+            <!-- <p *ngIf="error" class="error">
+                {{ error }}
+            </p> -->
+
+            <div class="button">
+                <button mat-raised-button color="primary">Connexion</button>
+            </div>
+
+        </form>
+
+        <!-- <a routerLink="" matInput>Vous n'avez pas de compte? Cliquez ici</a> -->
+    </mat-card-content>
+</mat-card>
