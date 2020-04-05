@@ -1,0 +1,75 @@
+.contact {
+    display: flex;
+    flex-direction: row; 
+
+    .contact_1 {
+        width: 50%;
+        background: url(../../../assets/img/car.png), no-repeat, center;
+        // height: 100%;
+    }
+
+.contact_2 {
+    width: 50%;
+    height: 100%;
+
+    h2 {
+        font-size: 40px;
+        padding-bottom: 35px;
+    }
+
+    .example-form {
+        margin: 20% 10%;
+        min-width: 150px;
+        max-width: 500px;
+
+        button {
+            float: right;
+        }
+      }
+      
+      .example-full-width {
+        width: 100%;
+      }
+
+    }
+}
+
+
+@media screen and (max-width: 961px) {
+    .contact {
+   
+        .contact_1 {
+            display: none;
+        }
+        .contact_2 {
+            width: 100%;
+            display: flex;
+            align-items: center;
+        
+            h2 {
+                font-size: 20px;
+                padding-bottom: 25px;
+            }
+        
+            .example-form {
+                margin: 20% 10%;
+                min-width: 150px;
+                max-width: 500px;
+        
+                button {
+                    float: right;
+                }
+              }
+              
+              .example-full-width {
+                width: 100%;
+              }
+        
+            }
+        }
+        
+
+}
+
+
+// @media screen and (min-width: 600px) {}

@@ -1,5 +1,5 @@
 <div>
-  <mat-toolbar color="primary" class="mat-elevation-z10">
+  <mat-toolbar color="primary" [class.mat-elevation-z8]="isActive">
     <mat-toolbar-row>
       <button mat-icon-button (click)="sidenav.toggle()" fxShow="true" fxHide.gt-sm>
         <mat-icon>menu</mat-icon>
@@ -25,6 +25,14 @@
           <mat-icon aria-hidden="false" aria-label="Fast Smart profile">account_circle</mat-icon>
         </button>
         <mat-menu #menu="matMenu">
+          <button mat-menu-item routerLink="/layouts/profile" routerLinkActive="active-link">
+            <mat-icon aria-hidden="false" aria-label="login website">person_outline</mat-icon>
+            Profile
+          </button>
+          <button mat-menu-item routerLink="/auth/register" routerLinkActive="active-link">
+            <mat-icon aria-hidden="false" aria-label="déconnexion">layers</mat-icon>
+            Configuration
+          </button>
           <button mat-menu-item routerLink="/auth/login" routerLinkActive="active-link">
             <mat-icon aria-hidden="false" aria-label="login website">portrait</mat-icon>
             Login
@@ -38,20 +46,6 @@
         <a routerLink="/layouts/cart" mat-button matTooltip="Votre Panier" routerLinkActive="active-link">
           <mat-icon aria-hidden="false" aria-label="Fast Smart panier">shopping_cart</mat-icon>
         </a>
-
-  <!-- <button mat-button [matMenuTriggerFor]="menu">
-          <mat-icon aria-hidden="false" aria-label="Example home icon">account_circle</mat-icon>
-        </button>
-        <mat-menu #menu="matMenu" routerLink="/auth/login">
-          <button mat-menu-item>
-            <mat-icon aria-hidden="false" aria-label="login website">perm_identity</mat-icon>
-            Login
-          </button>
-          <button mat-menu-item routerLink="/auth/register">
-            <mat-icon aria-hidden="false" aria-label="deconnexion">exit_to_app</mat-icon>
-            Déconnexion
-          </button>
-        </mat-menu> -->
 
       </div>
     </mat-toolbar-row>

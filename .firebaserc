@@ -1,0 +1,18 @@
+{
+  "targets": {
+    "eventdrc-technology": {
+      "hosting": {
+        "clientApp": [
+          "eventdrc-technology"
+        ]
+      }
+    },
+    "fast-smart": {
+      "hosting": {
+        "clientApp": [
+          "fast-smart"
+        ]
+      }
+    }
+  }
+}

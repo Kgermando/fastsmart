@@ -1,46 +1,6 @@
-<div class="form-wraper">
+<section>
+    <h1>Sign Up</h1>
+    
 
-    <form [formGroup]="signupForm" (ngSubmit)="signup()">
-        <div class="form-container card">
-            <div class="form-header">
-                <!-- <img src="../../../assets/login.svg" class="main-lock-icon" alt=""> -->
-            </div>
-
-            <div class="form-body">
-                <mat-form-field class="justifier">
-                    <input matInput placeholder="Email" formControlName="email" text="email" class="form-input">
-                    <div *ngIf="email.invalid && email.dirty">
-                        Your email doesn't look quite right...
-                    </div>
-                </mat-form-field>
-                <mat-form-field class="justifier">
-                    <input matInput placeholder="User Name" formControlName="userName" text="text" class="form-input">
-
-                </mat-form-field>
-
-                <mat-form-field class="justifier">
-                    <input matInput placeholder="password" formControlName="password" required text="password"
-                        class="form-input">
-                    <div *ngIf="password.invalid && password.touched">
-                        Password must be between 6 and 24 chars and have at least one number
-                    </div>
-                </mat-form-field>
-            </div>
-            <div *ngIf="signupForm.valid">Form looks good! Let's do this.</div>
-            <div class="form-footer">
-                <button mat-raised-button class="btn custom-btn" type="submit" [disabled]="!signupForm.valid">
-                    <mat-icon>input</mat-icon> Login
-                </button>
-                <div class="txt">
-                    OR
-                </div>
-                <button mat-raised-button class="btn" (click)="auth.googleSignin()">
-                    <img src="../../../assets/Google.svg" alt="" class="google-icon"> Login With Google
-                </button>
-            </div>
-            <div class="additional-link">
-                <a [routerLink]="['/register']">No Account? <strong>Create one here</strong></a>
-            </div>
-        </div>
-    </form>
-</div>
+</section>
+    

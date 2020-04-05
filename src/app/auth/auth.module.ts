@@ -10,8 +10,6 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
 import { SharedModule } from '../shared/shared.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthService } from './services/auth.service';
-import { AdminGuard } from './services/guard/admin-guard.service';
-import { CanReadGuard } from './services/guard/can-read-guard.service';
 
 
 @NgModule({
@@ -25,6 +23,6 @@ import { CanReadGuard } from './services/guard/can-read-guard.service';
 
     SharedModule
   ],
-  providers: [AuthService, AdminGuard, CanReadGuard]
+  providers: [AuthService]
 })
 export class AuthModule { }

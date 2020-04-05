@@ -10,12 +10,13 @@ import { ContactComponent } from './contact/contact.component';
 import { CategoryComponent } from './category/category.component';
 import { CartComponent } from './cart/cart.component';
 import { DetailComponent } from './detail/detail.component';
+import { ProfileComponent } from './profile/profile.component';
 
 
 @NgModule({
   declarations: [HomeComponent, LayoutsComponent,
                  ContactComponent, CategoryComponent,
-                 CartComponent, DetailComponent],
+                 CartComponent, DetailComponent, ProfileComponent],
   imports: [
     CommonModule,
     LayoutsRoutingModule,

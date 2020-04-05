@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { Observable } from 'rxjs';
-import { AuthService } from '../services/auth.service';
-import { User } from '../services/models/user';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -10,57 +8,15 @@ import { User } from '../services/models/user';
   styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent implements OnInit {
-  signupForm: FormGroup;
-  detailForm: FormGroup;
-  user$: Observable<User> = this.auth.user$
+  
+  signUpFG: FormGroup;
 
-  constructor(public fb: FormBuilder, public auth: AuthService) { }
+  constructor(
+    private fb: FormBuilder,
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
-    // First Step
-    this.signupForm = this.fb.group({
-      'email': ['', [
-        Validators.required,
-        Validators.email
-      ]
-      ],
-      'password': ['', [
-        Validators.pattern('^(?=.*[0-9])(?=.*[a-zA-Z])([a-zA-Z0-9]+)$'),
-        Validators.minLength(6),
-        Validators.maxLength(25),
-        Validators.required
-      ]
-      ],
-      'userName': [''],
-      'codePostale': [''],
-      'adress': ['', [
-        Validators.minLength(10),
-        Validators.required
-      ]
-    ],
-      'phone': ['', [
-        Validators.pattern('^(?=.+*[0-9])'),
-        Validators.minLength(10),
-        Validators.required
-      ]]
-    });
-
-  }
-
-  // Using getters will make your code look pretty
-  get email() { return this.signupForm.get('email') }
-  get password() { return this.signupForm.get('password') }
-
-  get userName() { return this.signupForm.get('userName') }
-  get codePostale() { return this.signupForm.get('codePostale') }
-  get adress() { return this.signupForm.get('adress') }
-  get phone() { return this.signupForm.get('phone') }
-
-
-  // Step 1
-  signup() {
-    return this.auth.emailSignUp(this.email.value, this.password.value, this.signupForm.value);
-
   }
 
 }

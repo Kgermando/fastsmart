@@ -1,5 +1,5 @@
 export interface Roles {
-    subscriber?: boolean;
+    reader?: boolean;
     editor?: boolean;
     admin?: boolean;
 }
@@ -8,8 +8,9 @@ export interface User {
     email: string;
     photoURL?: string;
     displayName?: string;
-    codePostale?: string;
     adress?: string;
     phone?: string;
     roles: Roles;
+    updateDate?: Date,
+    emailVerified: boolean;
 }

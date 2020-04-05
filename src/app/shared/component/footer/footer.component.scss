@@ -1,7 +1,7 @@
 mat-toolbar {
   clear: both;
-  // width : 100%;
-  position : sticky;
+  width : 100%;
+  position: sticky;
   bottom: 0;
   background: rgba($color: #000000, $alpha: 1.0);
   color: white;
@@ -15,13 +15,3 @@ mat-toolbar {
   font-size: small;
 
 }
-
-
-footer{
-  background:#ccc;
-  position:absolute;
-  bottom:0;
-  width:100%;
-  padding-top:50px;
-  height:50px;
-} 
