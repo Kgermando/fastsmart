@@ -1,0 +1,87 @@
+section {
+    height: 100vh;
+
+    .profile_1 {
+        height: 25%;
+        background-color: #FF4081;
+        display: flex;
+        padding: 30px 20px;
+
+        .col_1 {
+            display: flex;
+            flex-direction: column;
+            padding-left: 20px;
+            padding-right: 80px;
+            
+            h4 {     
+                color: white;
+                font-size: 30px;
+                padding-bottom: 20px;
+            }
+
+            p {
+                color: white;
+                font-size: 14px;
+            }
+
+        }
+
+        .col_2 {
+            display: flex;
+            flex-direction: column;
+            color: white;
+            font-size: 14px;
+            padding-top: 60px;
+        }
+        
+    }
+
+
+
+
+
+    @media screen and (max-width: 960px) {
+        .profile_1 {
+            height: 50%;
+            background-color: #FF4081;
+            display: flex;
+            flex-direction: column;
+    
+            .col_1 {
+                display: flex;
+                flex-direction: column;
+                padding-left: 20px;
+                
+                h4 {     
+                    color: white;
+                    font-size: 24px;
+                    padding-bottom: 20px;
+                }
+    
+                p {
+                    color: white;
+                    font-size: 14px;
+                }
+    
+            }
+    
+            .col_2 {
+                display: flex;
+                flex-direction: column;
+                color: white;
+                font-size: 14px;
+                padding-left: 20px;
+                padding-top: 0;
+            }
+            
+        }
+
+        .profile_2 {
+            margin-top: 20px;
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+    }
+
+    
+}

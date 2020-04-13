@@ -1,1 +1,45 @@
-<p>profile works!</p>
+
+<section *ngIf="authService.user$ | async as user">
+    <div class="profile_1">
+
+        <div class="col_1">
+            <h4>
+                Bienvenue @<span>{{ user?.name }} </span>
+            </h4>
+            <mat-divider></mat-divider>
+            <p>
+               Votre Identifiant unique {{ user?.uid }}  
+            </p>
+
+            <p>
+               Adresse email {{ user?.email }}
+            </p>
+
+            <p>
+                Votre numéro {{ user?.phone }}
+             </p>
+        </div>
+    
+        <div class="col_2">
+            <p>
+                Votre adresse domicile {{ user?.adress }}
+            </p>
+
+            <p>
+               Permissions: <span>{{ user?.roles }}</span> 
+            </p>
+        </div>
+
+    </div> 
+
+    <div class="profile_2">
+        <p>Bonus: 25</p> 
+
+        <p>Point de Fidelité: 150</p>
+
+        <p>Vous pouvez en gagner plus en recommandant ce site a vos partenaire</p>
+    </div>
+
+   
+   
+</section>

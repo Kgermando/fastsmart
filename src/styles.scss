@@ -1,5 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 
+
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
@@ -11,11 +12,6 @@ $main: #232f3e;
 
 a {
   cursor: pointer;
-}
-
-a :hover {
-  text-decoration: none;
-  color: #ffc107;
 }
 
 button {

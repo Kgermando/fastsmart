@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "fastsmart",
+  "private_key_id": "4402153aee12161f51eee4336af37b0101856fc5",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDJVJDvkAkusZRt\njXnVWZmPvHb2hnUzTzMmSCjNi8PUCfsMrJw4oTAKfNYPBpQMn2z5xTQ2pOQwV2sH\nqgEzjsUICXEdoz/YDKz1DBVnAzUuaXPsOKjuv3AxQuV18kXpYjWSPlCIaugshakl\n5b/+BhV6fT3D+CV78CYP90s73e52vfZ01ps+MN2cSVyOa7Eng88GwUbOdzg3JoVw\nZTFU6FupXodxJNn8oWcvabJhbzVEZXDqHWBW44kI63NWpfaiFmNzhBufv0lN2ydy\nqNqK3Bht+/TlzjG9tebkTGnwQ+vIRiYuyOCpoeJ3W0lf/y8lIBT2dqpZJ5Iuvf5y\njP3GOVQxAgMBAAECggEAAVRlJqfkCk0S8WGd/Io8c5C86mY7ROz7e1UTq+kwkGhx\nIjAg/KttMUyKGgxNkwMZ3vvDRgRzG1ygcNWvGgOR3+U2vDQ1T5HPMfPJT7uw22Ry\nkbdSv6I/tUY/VLbrvkhZ7o7Ud6oubAjanqJJ+9Ksy/kix3YOl/x0i+YdYZZWz62b\ngL4ub8bEYk1IrjSLiUV3eHQJFUzXyI5kUc2qCT+FGdHj0WTV8TZu2TKjvTVXmJ8S\neFMd/jFwGkndt2TiFN5FndpUIQq8bsUCSzrG4fG2IiG1LwHAMafZQaPss2YTcJ7S\npr8by+/cafxVIRVQKNt3YX6vW+Lv2j1ackR5RJU5CQKBgQDnrhT15wL1bTM8f10n\n6Ij04VTjnCk53gdXUiDovQnqsv/tZAAFSV2DqzRZEKOQPYQU7CvoEs6ELG+9gHaZ\nMECHHJMJOStudH2nu+LoJgq9irOw6nJMOEwKnSNRt54ONPlGWE0s+nFW7H2S1dd6\nTmZ2mfFW35TpYH+q6ol1PSUDdQKBgQDeduZoJnYRWPrtyrWTtHrbYF4ry7tDm45y\nUL80CvjAaQSenXc89tzwpe2fl1PLS69T3wmhSXIx3/Osaq3Z/mRPmVCzWiNlPtVt\nb1zl17Nw3UO95CJO9BadyapruG9ZqgOrWtCMuFzLgonbKTDtazQa+8eOeq3sBzJj\nIiJd0aLiTQKBgQDi04kqB/bZmwRi4r+t5vjP6B1YivfB9CNz1rDprMscwgvXu+RZ\nSK8JzoD+AlBhVBkQ8vk5yc/vkCIGgtOav6ctoUhD63keN2ce5dEOQNCbKkUrnR4y\niZvJeHev9foFJtA3kxRcSQbWd8uqCztgP4oJ7EZhK517sELOb7oM0sR+UQKBgFxU\nfMw9KkOI6pxGxZXIEjV6iZsjs1Ub+sL3QGQZKaSx8XjjYdmrm4dFVpol9GEryFjG\n+Pg3w21vxXKJ1B3ltzxSJWxKvOYIbgw9bBD4tUDilHr7dEHQjJJwYIrUwWI1bdBw\noJ3G5ryQMScEsYnYNIf+d5Rq1kRfuEnsoNbPawsBAoGAYdbD+IrOU0Zu1G64qa5p\nnTL3F8z+wENc/IsbHiLlC0be1wWkk0zd4CDSse5Fj9vBbKDlSgVwYpVxAUA6Ng8M\nH88fJ/lIkbbnwrBYzd3v5trE0sEMBKqezXdglf+/CR28LHQ/I/Dk62dF1jayo8Au\nvG1MuE9qxzho131CfGFMFBc=\n-----END PRIVATE KEY-----\n",
+  "client_email": "fastsmart@appspot.gserviceaccount.com",
+  "client_id": "107352165366275755648",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/fastsmart%40appspot.gserviceaccount.com"
+}

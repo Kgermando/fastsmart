@@ -11,12 +11,13 @@ import { CategoryComponent } from './category/category.component';
 import { CartComponent } from './cart/cart.component';
 import { DetailComponent } from './detail/detail.component';
 import { ProfileComponent } from './profile/profile.component';
+import { SearchComponent } from './search/search.component';
 
 
 @NgModule({
   declarations: [HomeComponent, LayoutsComponent,
                  ContactComponent, CategoryComponent,
-                 CartComponent, DetailComponent, ProfileComponent],
+                 CartComponent, DetailComponent, ProfileComponent, SearchComponent],
   imports: [
     CommonModule,
     LayoutsRoutingModule,

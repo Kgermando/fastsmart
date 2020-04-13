@@ -1,0 +1,116 @@
+.category_0 {
+
+    .example-tab-icon {
+        margin-right: 8px;
+      }
+}
+
+
+.category {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+
+
+
+    .category_1 {
+        display: flex;
+        flex-direction: column;
+        margin-left: 20px;
+          
+
+        a {
+           max-width: 10rem;
+           padding: 10px 45px;
+           border-color: crimson;
+        }
+    }
+
+    .category_2 {
+
+        .card_grid {
+            margin-left: 8%;
+        
+            .example-card {
+                margin-bottom: 15px;
+                max-width: 400px;
+        
+                mat-card-title {
+                    color: accent;
+                }
+            
+                .add_panier {
+                    float: right;
+                }
+                .rating {
+                    margin-left: -8px;
+                    margin-right: -8px;
+                }
+            }
+                
+        }
+    }
+
+}
+
+
+@media screen and (max-width: 960px) {
+    
+.category {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+    margin-left: 2px;
+
+    .category_1 {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        // margin-left: 10px;
+        margin-bottom: 10px;
+
+        a {
+           max-width: 10rem;
+           padding: 5px 15px;
+           border-color: crimson;
+        }
+
+        .active {
+            background: crimson;
+        }
+
+        mat-chip {
+            max-width: 200px;
+          }
+          
+    }
+
+    .category_2 {
+
+        .card_grid {
+            margin-left: 3%;
+        
+            .example-card {
+                margin-bottom: 15px;
+                max-width: 400px;
+        
+                mat-card-title {
+                    color: accent;
+                }
+            
+                .add_panier {
+                    float: right;
+                }
+                .rating {
+                    margin-left: -8px;
+                    margin-right: -8px;
+                }
+            }
+                
+        }
+    }
+
+}
+
+}

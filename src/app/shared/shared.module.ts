@@ -49,11 +49,11 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { NotFoundComponent } from './component/not-found/not-found.component';
 import { FooterComponent } from './component/footer/footer.component';
-
-
+import { SmartDatePipe } from './services/pipes/smart-date.pipe';
+import { SearchFilterPipe } from './services/pipes/search-filter.pipe';
 
 @NgModule({
-  declarations: [FooterComponent, NotFoundComponent],
+  declarations: [FooterComponent, NotFoundComponent, SmartDatePipe, SearchFilterPipe],
   imports: [
     CommonModule,
     A11yModule,
@@ -150,6 +150,11 @@ import { FooterComponent } from './component/footer/footer.component';
 
     FlexLayoutModule,
 
+    // Pipes
+    SmartDatePipe,
+    SearchFilterPipe,
+
+    // Components
     FooterComponent,
     NotFoundComponent
   ]

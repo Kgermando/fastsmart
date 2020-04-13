@@ -1,5 +1,5 @@
-<div>
-  <mat-toolbar color="primary" [class.mat-elevation-z8]="isActive">
+<div class="mat-elevation-z12">
+  <mat-toolbar color="primary">
     <mat-toolbar-row>
       <button mat-icon-button (click)="sidenav.toggle()" fxShow="true" fxHide.gt-sm>
         <mat-icon>menu</mat-icon>
@@ -12,7 +12,7 @@
         <!-- The following menu items will be hidden on both SM and XS screen sizes -->
         <a routerLink="/layouts/home" mat-button matTooltip="Acceuil" routerLinkActive="active-link">
           <mat-icon aria-hidden="false" aria-label="Fast Smart acceuil">home</mat-icon>
-        </a>
+        </a> 
         <a routerLink="/layouts/category" mat-button matTooltip="Categories" routerLinkActive="active-link">
           <mat-icon aria-hidden="false" aria-label="Fast Smart categories">apps</mat-icon>
         </a>
@@ -21,38 +21,38 @@
         </a>
       </div>
       <div class="auth_cart">
+        <a routerLink="/layouts/cart" mat-button matTooltip="Votre Panier" routerLinkActive="active-link">
+          <mat-icon aria-hidden="false" aria-label="Fast Smart panier" 
+            matBadge="8" matBadgePosition="before" matBadgeColor="accent">shopping_cart</mat-icon>
+        </a>
+
         <button mat-button [matMenuTriggerFor]="menu" matTooltip="Menu Authentification">
-          <mat-icon aria-hidden="false" aria-label="Fast Smart profile">account_circle</mat-icon>
+          <mat-icon aria-hidden="false" aria-label="Fast Smart profile">person</mat-icon>
         </button>
         <mat-menu #menu="matMenu">
-          <button mat-menu-item routerLink="/layouts/profile" routerLinkActive="active-link">
-            <mat-icon aria-hidden="false" aria-label="login website">person_outline</mat-icon>
+          <button mat-menu-item routerLink="/layouts/profile" routerLinkActive="active-link" *ngIf="loggedIn$ | async">
+            <mat-icon aria-hidden="false" aria-label="login website">account_circle</mat-icon>
             Profile
           </button>
-          <button mat-menu-item routerLink="/auth/register" routerLinkActive="active-link">
-            <mat-icon aria-hidden="false" aria-label="déconnexion">layers</mat-icon>
-            Configuration
+          <button mat-menu-item (click)="signOut()" routerLinkActive="active-link" *ngIf="loggedIn$ | async">
+            <mat-icon aria-hidden="false" aria-label="déconnexion">input</mat-icon>
+            Déconnexion
           </button>
-          <button mat-menu-item routerLink="/auth/login" routerLinkActive="active-link">
+          <button mat-menu-item routerLink="/auth/login" routerLinkActive="active-link" *ngIf="loggedOut$ | async">
             <mat-icon aria-hidden="false" aria-label="login website">portrait</mat-icon>
             Login
           </button>
-          <button mat-menu-item routerLink="/auth/register" routerLinkActive="active-link">
+          <button mat-menu-item routerLink="/auth/register" routerLinkActive="active-link" *ngIf="loggedOut$ | async">
             <mat-icon aria-hidden="false" aria-label="déconnexion">person_add</mat-icon>
             Créez un compte
           </button>
         </mat-menu>
-
-        <a routerLink="/layouts/cart" mat-button matTooltip="Votre Panier" routerLinkActive="active-link">
-          <mat-icon aria-hidden="false" aria-label="Fast Smart panier">shopping_cart</mat-icon>
-        </a>
-
       </div>
     </mat-toolbar-row>
   </mat-toolbar>
 
   <mat-sidenav-container fxFlexFill>
-    <mat-sidenav #sidenav>
+    <mat-sidenav #sidenav (click)="sidenav.close()">
       <mat-nav-list>
         <a routerLink="/layouts/home" mat-list-item routerLinkActive="active-link">
           <mat-icon aria-hidden="false" aria-label="Fast Smart home">home</mat-icon>
@@ -74,6 +74,3 @@
     </mat-sidenav-content>
   </mat-sidenav-container>
 </div>
-
-
-

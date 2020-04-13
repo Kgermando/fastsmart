@@ -1,1 +1,205 @@
-<p>category works!</p>
+<section class="category_0">
+
+    <mat-tab-group>
+        <mat-tab>
+            <ng-template mat-tab-label>
+                <mat-icon class="example-tab-icon">devices</mat-icon>
+                Sites Web
+            </ng-template>
+            
+            <div class="category">
+                <div class="category_1">
+                    <!-- <ng-container *ngFor="let _ of [1,2,3,4,5]">
+                        <a mat-button routerLinkActive="active-link">
+                             SANTE
+                        </a>
+                    </ng-container> -->
+
+                    <mat-chip-list class="mat-chip-list-stacked" aria-label="Categorie Secteur" routerLinkActive="active">
+                        <mat-chip *ngFor="let _ of [1,2,3,4,5]" selected [color]="_.color">
+                          <!-- {{_.name}} --> Sante
+                        </mat-chip>
+                    </mat-chip-list>
+                </div>
+
+                <div class="category_2">
+                    <div class="card_grid"
+                    fxLayout="row wrap"
+                    fxLayout.lt-sm="column"
+                    fxLayoutGap="8%"
+                    fxLayoutAlign="flex-start">
+                        <ng-container *ngFor="let _ of [1,2,3,4,5,6,7,8]">
+                            <mat-card class="example-card" fxFlex="0 1 calc(33.3% - 8%)" fxFlex.lt-md="0 1 calc(50% - 8%)" fxFlex.lt-sm="100%">
+                                <img class="image_avatar" mat-card-image src="../../../assets/img/car.png" alt="Photo of a Shiba Inu">
+                                <mat-card-content>
+                                <mat-card-title>Voiture</mat-card-title>
+                                <p >
+                                    The Shiba Inu is the smallest
+                                </p>
+                                </mat-card-content>
+                                <mat-card-actions>
+                                <button class="rating" mat-icon-button [color]="color" *ngFor="let ratingId of ratingArr;index as i" [id]="'star_'+i">
+                                    <mat-icon>
+                                    {{showIcon(i)}}
+                                    </mat-icon>
+                                </button>
+                                    
+                                <button class="add_panier" mat-raised-button color="accent" matTooltip="Ajoutez a votre panier">
+                                    <mat-icon aria-hidden="false" aria-label="Fast Smart panier cart">shopping_cart</mat-icon>
+                                </button>
+                                </mat-card-actions>
+                            </mat-card>
+                        </ng-container>
+                    </div>
+                </div>
+            </div>
+
+        </mat-tab>
+        <mat-tab>
+            <ng-template mat-tab-label>
+                <mat-icon class="example-tab-icon">smartphone</mat-icon>
+                Applications Mobiles
+            </ng-template>
+            
+            <div class="category">
+                <div class="category_1">
+                    <ng-container *ngFor="let _ of [1,2,3,4,5]">
+                        <a routerLink="/layouts/home" mat-button matTooltip="Acceuil" routerLinkActive="active-link">
+                            <mat-icon aria-hidden="false" aria-label="Fast Smart acceuil">home</mat-icon> SANTE
+                        </a>
+                    </ng-container>
+                </div>
+            
+                <div class="category_2">
+                    <div class="card_grid"
+                    fxLayout="row wrap"
+                    fxLayout.lt-sm="column"
+                    fxLayoutGap="8%"
+                    fxLayoutAlign="flex-start">
+                        <ng-container *ngFor="let _ of [1,2,3,4,5,6,7,8]">
+                            <mat-card class="example-card" fxFlex="0 1 calc(33.3% - 8%)" fxFlex.lt-md="0 1 calc(50% - 8%)" fxFlex.lt-sm="100%">
+                                <img class="image_avatar" mat-card-image src="../../../assets/img/car.png" alt="Photo of a Shiba Inu">
+                                <mat-card-content>
+                                <mat-card-title>Voiture</mat-card-title>
+                                <p >
+                                    The Shiba Inu is the smallest
+                                </p>
+                                </mat-card-content>
+                                <mat-card-actions>
+                                <button class="rating" mat-icon-button [color]="color" *ngFor="let ratingId of ratingArr;index as i" [id]="'star_'+i">
+                                    <mat-icon>
+                                    {{showIcon(i)}}
+                                    </mat-icon>
+                                </button>
+                                    
+                                <button class="add_panier" mat-raised-button color="accent" matTooltip="Ajoutez a votre panier">
+                                    <mat-icon aria-hidden="false" aria-label="Fast Smart panier cart">shopping_cart</mat-icon>
+                                </button>
+                                </mat-card-actions>
+                            </mat-card>
+                        </ng-container>
+                    </div>
+                </div>
+            </div>
+
+        </mat-tab>
+        <mat-tab >
+            <ng-template mat-tab-label>
+                <mat-icon class="example-tab-icon">desktop_mac</mat-icon>
+                Logiciels
+            </ng-template>
+            
+            <div class="category">
+                <div class="category_1">
+                    <ng-container *ngFor="let _ of [1,2,3,4,5]">
+                        <a routerLink="/layouts/home" mat-button matTooltip="Acceuil" routerLinkActive="active-link">
+                            <mat-icon aria-hidden="false" aria-label="Fast Smart acceuil">home</mat-icon> SANTE
+                        </a>
+                    </ng-container>
+                </div>
+            
+                <div class="category_2">
+                    <div class="card_grid"
+                    fxLayout="row wrap"
+                    fxLayout.lt-sm="column"
+                    fxLayoutGap="8%"
+                    fxLayoutAlign="flex-start">
+                        <ng-container *ngFor="let _ of [1,2,3,4,5,6,7,8]">
+                            <mat-card class="example-card" fxFlex="0 1 calc(33.3% - 8%)" fxFlex.lt-md="0 1 calc(50% - 8%)" fxFlex.lt-sm="100%">
+                                <img class="image_avatar" mat-card-image src="../../../assets/img/car.png" alt="Photo of a Shiba Inu">
+                                <mat-card-content>
+                                <mat-card-title>Voiture</mat-card-title>
+                                <p >
+                                    The Shiba Inu is the smallest
+                                </p>
+                                </mat-card-content>
+                                <mat-card-actions>
+                                <button class="rating" mat-icon-button [color]="color" *ngFor="let ratingId of ratingArr;index as i" [id]="'star_'+i">
+                                    <mat-icon>
+                                    {{showIcon(i)}}
+                                    </mat-icon>
+                                </button>
+                                    
+                                <button class="add_panier" mat-raised-button color="accent" matTooltip="Ajoutez a votre panier">
+                                    <mat-icon aria-hidden="false" aria-label="Fast Smart panier cart">shopping_cart</mat-icon>
+                                </button>
+                                </mat-card-actions>
+                            </mat-card>
+                        </ng-container>
+                    </div>
+                </div>
+            </div>
+
+        </mat-tab>
+        <mat-tab>
+            <ng-template mat-tab-label>
+                <mat-icon class="example-tab-icon">settings_system_daydream</mat-icon>
+                Applications Web
+            </ng-template>
+            
+            <div class="category">
+                <div class="category_1">
+                    <ng-container *ngFor="let _ of [1,2,3,4,5]">
+                        <a routerLink="/layouts/home" mat-button matTooltip="Acceuil" routerLinkActive="active-link">
+                            <mat-icon aria-hidden="false" aria-label="Fast Smart acceuil">home</mat-icon> SANTE
+                        </a>
+                    </ng-container>
+                </div>
+            
+                <div class="category_2">
+                    <div class="card_grid"
+                    fxLayout="row wrap"
+                    fxLayout.lt-sm="column"
+                    fxLayoutGap="8%"
+                    fxLayoutAlign="flex-start">
+                        <ng-container *ngFor="let _ of [1,2,3,4,5,6,7,8]">
+                            <mat-card class="example-card" fxFlex="0 1 calc(33.3% - 8%)" fxFlex.lt-md="0 1 calc(50% - 8%)" fxFlex.lt-sm="100%">
+                                <img class="image_avatar" mat-card-image src="../../../assets/img/car.png" alt="Photo of a Shiba Inu">
+                                <mat-card-content>
+                                <mat-card-title>Voiture</mat-card-title>
+                                <p >
+                                    The Shiba Inu is the smallest
+                                </p>
+                                </mat-card-content>
+                                <mat-card-actions>
+                                <button class="rating" mat-icon-button [color]="color" *ngFor="let ratingId of ratingArr;index as i" [id]="'star_'+i">
+                                    <mat-icon>
+                                    {{showIcon(i)}}
+                                    </mat-icon>
+                                </button>
+                                    
+                                <button class="add_panier" mat-raised-button color="accent" matTooltip="Ajoutez a votre panier">
+                                    <mat-icon aria-hidden="false" aria-label="Fast Smart panier cart">shopping_cart</mat-icon>
+                                </button>
+                                </mat-card-actions>
+                            </mat-card>
+                        </ng-container>
+                    </div>
+                </div>
+            </div>
+
+        </mat-tab>
+    </mat-tab-group>
+
+   
+</section>

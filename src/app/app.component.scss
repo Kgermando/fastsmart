@@ -13,7 +13,6 @@ mat-nav-list {
 }
 
 .active-link{
-  // background-color: #ffc107;
   color: #ffc107;
   }
 
@@ -22,14 +21,15 @@ mat-nav-list {
     height: 50px;
   }
 
+  a :hover {
+    text-decoration: none;
+    color: #ffc107;
+  }
+
 
   @media screen and (max-width: 400px) {
     img {
       width: 110px; 
       height: 50px;
     }
-
-    // .auth_cart {
-    //   padding-right: 0;
-    // }
   }

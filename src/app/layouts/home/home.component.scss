@@ -69,9 +69,21 @@
       .example-card {
         margin-bottom: 15px;
         max-width: 400px;
+
+        // .image_avatar {
+        //   width: 100%;
+        // }
+
+        mat-card-title {
+          color: accent;
+        }
   
         .add_panier {
           float: right;
+        }
+        .rating {
+          margin-left: -8px;
+          margin-right: -8px;
         }
       }
       
@@ -152,6 +164,11 @@
           .add_panier {
             float: right;
           }
+
+          .rating {
+            margin-left: -8px;
+            margin-right: -8px;
+          }
         }
         
       }
@@ -231,6 +248,10 @@
     
           .add_panier {
             float: right;
+          }
+          .rating {
+            margin-left: -8px;
+            margin-right: -8px;
           }
         }
         

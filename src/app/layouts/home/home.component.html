@@ -17,26 +17,29 @@
         fxLayout.lt-sm="column"
         fxLayoutGap="8%"
         fxLayoutAlign="flex-start">
-      <ng-container *ngFor="let _ of [1,2,3,4,5,6,7,8]">
-        <mat-card class="example-card" fxFlex="0 1 calc(33.3% - 8%)" fxFlex.lt-md="0 1 calc(50% - 8%)" fxFlex.lt-sm="100%">
-          <img class="image_avatar" mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
-          <mat-card-content>
-            <h4 style="padding-top: 0; text-align: center;">Title</h4>
-            <p >
-              The Shiba Inu is the smallest
-            </p>
-          </mat-card-content>
-          <mat-card-actions>
-            <button mat-button>
-            </button>
-                rating
-            <button class="add_panier" mat-raised-button color="accent" matTooltip="Ajoutez a votre panier">
-              <mat-icon aria-hidden="false" aria-label="Fast Smart panier cart">shopping_cart</mat-icon>
-            </button>
-          </mat-card-actions>
-        </mat-card>
-      </ng-container>
-    </div>
+    <ng-container *ngFor="let _ of [1,2,3,4,5,6,7,8]">
+      <mat-card class="example-card" fxFlex="0 1 calc(33.3% - 8%)" fxFlex.lt-md="0 1 calc(50% - 8%)" fxFlex.lt-sm="100%">
+        <img class="image_avatar" mat-card-image src="../../../assets/img/car.png" alt="Photo of a Shiba Inu">
+        <mat-card-content>
+          <mat-card-title>Voiture</mat-card-title>
+          <p >
+            The Shiba Inu is the smallest
+          </p>
+        </mat-card-content>
+        <mat-card-actions>
+          <button class="rating" mat-icon-button [color]="color" *ngFor="let ratingId of ratingArr;index as i" [id]="'star_'+i">
+            <mat-icon>
+              {{showIcon(i)}}
+            </mat-icon>
+          </button>
+              
+          <button class="add_panier" mat-raised-button color="accent" matTooltip="Ajoutez au panier">
+            <mat-icon aria-hidden="false" aria-label="Fast Smart panier cart">shopping_cart</mat-icon>
+          </button>
+        </mat-card-actions>
+      </mat-card>
+    </ng-container>
+  </div>
 
 </section>
 
