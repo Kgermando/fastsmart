@@ -18,9 +18,9 @@ export class RegisterComponent implements OnInit, OnDestroy {
 
   constructor(public authService: AuthService) {
     this._permissions = [
-      { value: Permissions.ADMIN, viewValue: 'Admininstrator' },
-      { value: Permissions.MANAGER, viewValue: 'Manager' },
-      { value: Permissions.USER, viewValue: 'User' }
+      // { value: Permissions.ADMIN, viewValue: 'Admininstrator' },
+      // { value: Permissions.MANAGER, viewValue: 'Manager' },
+      { value: Permissions.USER, viewValue: 'Client' }
     ];
   }
 

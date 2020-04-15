@@ -48,12 +48,12 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { NotFoundComponent } from './component/not-found/not-found.component';
-import { FooterComponent } from './component/footer/footer.component';
-import { SmartDatePipe } from './services/pipes/smart-date.pipe';
 import { SearchFilterPipe } from './services/pipes/search-filter.pipe';
+import { SnackbarComponent } from './component/snackbar/snackbar.component';
+import { SmartDatePipe } from './services/pipes/smart-date.pipe';
 
 @NgModule({
-  declarations: [FooterComponent, NotFoundComponent, SmartDatePipe, SearchFilterPipe],
+  declarations: [NotFoundComponent, SmartDatePipe, SearchFilterPipe, SnackbarComponent],
   imports: [
     CommonModule,
     A11yModule,
@@ -155,7 +155,6 @@ import { SearchFilterPipe } from './services/pipes/search-filter.pipe';
     SearchFilterPipe,
 
     // Components
-    FooterComponent,
     NotFoundComponent
   ]
 })

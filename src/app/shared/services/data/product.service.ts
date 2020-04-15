@@ -1,119 +1,152 @@
 import { Injectable } from '@angular/core';
-import { map } from 'rxjs/operators';
+import { map, first } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 import { QueryFn, AngularFirestoreCollection, AngularFirestore,
          AngularFirestoreDocument } from '@angular/fire/firestore';
-import { AngularFireStorage } from '@angular/fire/storage';
+         import { AngularFireAuth } from '@angular/fire/auth';
 import { Product } from '../../models/product';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductService {
 
- // Collection Database
- readonly path = 'Products';
-
- private productcollection: AngularFirestoreCollection<Product>;
+  userId: string;
+  product: any;
+  productCollection: AngularFirestoreCollection<Product>;
+  productInfo: Observable<Product[]>;
 
  // Pour la methode getOneProduct()
  private productDoc: AngularFirestoreDocument<Product>;
- public product: Observable<Product>;
+ public productView: Observable<Product>;
 
+ constructor( private angularfireauth: AngularFireAuth,
+              private afs: AngularFirestore
+            ) {
+      this.angularfireauth.authState.subscribe(user => {
+        if (user) this.userId = user.uid;
+      });
 
- constructor(private afs: AngularFirestore, private storage: AngularFireStorage) {
-   this.productcollection = this.afs.collection<Product>('Products', (ref) => {
-     return ref.orderBy('Created', 'desc');
-   });
+      this.productCollection = afs.collection<Product>("Products");
+    }
+
+    getUserId(): Observable<any> {
+      return new Observable(observer => {
+        this.angularfireauth.authState.subscribe(user => {
+          observer.next(user.uid);
+        });
+      });
+    }
+    
+  createProduct(productInfo) {
+    this.productCollection.add(productInfo);
   }
 
-  // create Product
- add(data: Product, imageFile: File) {
-   if (imageFile) {
-     const path = `images/${new Date().getTime()}_${imageFile.name}`;
+  updateProduct(productInfo, productId) {
+    this.productCollection.doc(productId).update(productInfo);
+  }
 
-     this.storage.upload(path, imageFile).then(() => {
-       this.storage.ref(path).getDownloadURL().subscribe( imageURL => {
-         this.uploadPostToFirestore(data, imageURL);
-       });
-     });
-   } else {
-     this.uploadPostToFirestore(data);
-   }
- }
+  getAllCategory() {
+    this.afs
+      .collection("Categories")
+      .get()
+      .pipe(first())
+      .subscribe(res => {
+        console.log(res);
+      });
+  }
 
- // Remove data in database
- remove(id: string): Promise<void> {
-   return this.afs.doc<Product>(`${this.path}/${id}`).delete();
- }
+  getCollection$(ref?: QueryFn): Observable<Product[]> {
+    return this.afs.collection<Product>('Products', ref)  // => ref.orderBy('Created', 'asc')
+      .snapshotChanges()
+      .pipe(map(actions => {
+        return actions.map(a => {
+          const data = a.payload.doc.data() as Product;
+          const id = data.id;
+          return { id, ...data };
+        });
+      })
+      );
+  }
 
- // Update data in database
- update(data: Product, imageFile: File) {
-   if (imageFile) {
-     const path = `images/${new Date().getTime()}_${imageFile.name}`;
+  // getProductBySupplier(): Observable<any> {
+  //   return new Observable(observer => {
+  //     this.angularfireauth.authState.subscribe(user => {
+  //       if (user) {
+  //         this.userId = user.uid;
+  //         this.afs
+  //           .collection<Product>("Products", ref =>
+  //             ref.where("supplierId", "==", this.userId)
+  //           )
+  //           .snapshotChanges()
+  //           .subscribe(product => {
+  //             observer.next(product);
+  //           });
+  //       } else {
+  //         observer.next(null);
+  //       }
+  //     });
+  //   });
+  // }
 
-     this.storage.upload(path, imageFile).then(() => {
-       this.storage.ref(path).getDownloadURL().subscribe( imageURL => {
-         this.uploadPostToFirestore(data, imageURL);
-       });
-     });
-   } else {
-     this.uploadPostToFirestore(data);
-   }
- }
+  // getProfileBySupplierId(supplierID): Observable<any> {
+  //   return new Observable(observer => {
+  //     this.afs
+  //       .collection("Person")
+  //       .doc(supplierID)
+  //       .snapshotChanges()
+  //       .pipe(
+  //         map(changes => {
+  //           const data = changes.payload.data();
+  //           const id = changes.payload.id;
+  //           return { id, data };
+  //         })
+  //       ).subscribe(profile=>{
+  //         observer.next(profile);
+  //       })
+  //   });
+  // }
 
- // Get all data in database
- getCollection$(ref?: QueryFn): Observable<Product[]> {
-   return this.afs.collection<Product>(this.path, ref)  // => ref.orderBy('Created', 'asc')
-     .snapshotChanges()
-     .pipe(map(actions => {
-       return actions.map(a => {
-         const data = a.payload.doc.data() as Product;
-         const id = data.id;
-         return { id, ...data };
-       });
-     })
-     );
- }
+  removeProductByID(id){
+    this.afs.collection("Products").doc(id).delete();
+  }
 
- // Get all data in database in orderBy desc
- getAllCollection$(): Observable<Product[]> {
-     // tslint:disable-next-line: no-shadowed-variable
-     return this.afs.collection<Product>(this.path, ref => ref.orderBy('Created', 'desc'))
-       .snapshotChanges()
-       .pipe(map(actions => {
-         return actions.map(a => {
-           const data = a.payload.doc.data() as Product;
-           const id = data.id;
-           return { id, ...data };
-         });
-       })
-       );
-   }
+  getProductByProductId(id): Observable<any> {
+    return new Observable(observer => {
+      this.productCollection
+        .doc(id)
+        .snapshotChanges()
+        .pipe(
+          map(changes => {
+            const data = changes.payload.data();
+            const id = changes.payload.id;
+            return { id, data };
+          })
+        )
+        .subscribe(res => {
+          observer.next(res);
+        });
+    });
+  }
 
- // Geet one data in database
- getOneProduct(idProduct: string) {
-   this.productDoc = this.afs.doc<Product>(`Products/${idProduct}`);
-   return this.product = this.productDoc.snapshotChanges().pipe(map(action => {
-     if (action.payload.exists === false) {
-       return null;
-     } else {
-       const data = action.payload.data();
-       data.Created = new Date(data.Created.seconds * 1000);
-       data.id = action.payload.id;
-       return data;
-     }
-   }));
- }
 
- // Upload Logo if exist
- uploadPostToFirestore(data: Product, imageURL?: string) {
-   if (imageURL) {
-     data.ImageURL = imageURL;
-   }
-   return this.afs.doc<Product>(`${this.path}/${data.id}`).set(data).then((error => {
-     console.log(error);
-   }));
- }
+ 
+  // Geet one data in database
+  getOneProduct(idProduct: string) {
+    this.productDoc = this.afs.doc<Product>(`Products/${idProduct}`);
+    return this.productView = this.productDoc.snapshotChanges().pipe(map(action => {
+      if (action.payload.exists === false) {
+        return null;
+      } else {
+        const data = action.payload.data();
+        data.Created = new Date(data.Created.seconds * 1000);
+        data.id = action.payload.id;
+        return data;
+      }
+    }));
+  }
+
+
 
 }

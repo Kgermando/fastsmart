@@ -28,9 +28,9 @@ h2 {
 }
 
 // /* Border */
-// .mat-form-field-appearance-outline .mat-form-field-outline {
-//   color: white;
-// }
+.mat-form-field-appearance-outline .mat-form-field-outline {
+  color: white;
+}
 // /* Font color */
 // input.mat-input-element,
 // .mat-select-value-text,
@@ -51,3 +51,7 @@ h2 {
   width: 100%;
 }
 
+
+// mat-form-field {
+//   width: 100%;
+// }

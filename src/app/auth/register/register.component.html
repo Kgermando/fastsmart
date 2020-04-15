@@ -13,21 +13,15 @@
               <div>
                 <form fxLayout="column" fxLayoutAlign="space-around stretch center" fxLayoutGap="5px" class="example-form">
                   <mat-form-field appearance="outline" color="warn" class="example-full-width">
-                    <mat-label class="placeholder">Your Name</mat-label>
+                    <mat-label class="placeholder">Votre Prénom et Nom</mat-label>
                     <input matInput name="name" type="text" [(ngModel)]="_registerRequest.name">
                     <mat-icon matSuffix>account_circle</mat-icon>
                   </mat-form-field>
 
                   <mat-form-field appearance="outline" color="warn" class="example-full-width">
-                    <mat-label class="placeholder"> Email</mat-label>
-                    <input matInput name="email" type="text" [(ngModel)]="_registerRequest.email">
+                    <mat-label class="placeholder">Email</mat-label>
+                    <input matInput name="email" type="email" [(ngModel)]="_registerRequest.email">
                     <mat-icon matSuffix>alternate_email</mat-icon>
-                  </mat-form-field>
-
-                  <mat-form-field appearance="outline" color="warn" class="example-full-width">
-                    <mat-label class="placeholder">Adresse Domicile</mat-label>
-                    <input matInput name="name" type="text" [(ngModel)]="_registerRequest.adress">
-                    <mat-icon matSuffix>location_on</mat-icon>
                   </mat-form-field>
 
                   <mat-form-field appearance="outline" color="warn" class="example-full-width">
@@ -37,15 +31,29 @@
                   </mat-form-field>
 
                   <mat-form-field appearance="outline" color="warn" class="example-full-width">
-                    <mat-label class="placeholder">Account Type</mat-label>
+                    <mat-label class="placeholder">Adresse d'éxploitation</mat-label>
+                    <textarea matInput rows="4" name="name" type="text" [(ngModel)]="_registerRequest.adress"></textarea>
+                    <!-- <input matInput > -->
+                    <mat-icon matSuffix>location_on</mat-icon>
+                  </mat-form-field>
+
+                  <mat-form-field appearance="outline" color="warn" class="example-full-width">
+                    <mat-label class="placeholder">Selectionnez votre compte</mat-label>
                     <mat-select name="permission" type="text"  [(ngModel)]="_registerRequest.role">
                       <mat-option *ngFor="let permission of _permissions" [value]="permission.value">
                         {{ permission.viewValue }}
                       </mat-option>
                     </mat-select> 
                   </mat-form-field>
+
+                  <mat-form-field appearance="outline" color="warn" class="example-full-width">
+                    <mat-label class="placeholder">Mot de Passe</mat-label>
+                    <input matInput name="password" type="password" [(ngModel)]="_registerRequest.password">
+                    <mat-icon matSuffix>lock</mat-icon>
+                  </mat-form-field>
           
                   <button mat-raised-button color="warn" (click)="signup()" name="loginBtn">Créez</button>
+                  <button mat-raised-button color="accent" routerLink="/auth/login" name="registerBtn">Vous avez déjà un compte? Connectez-vous ici.</button>
                 </form>
               </div>
             </mat-card-content>

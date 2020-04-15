@@ -1,0 +1,36 @@
+
+
+.menu-spacer {
+    flex: 1 1 auto;
+  }
+  
+  mat-nav-list {
+    a {
+      mat-icon {
+        padding-right: 5px;
+      }
+    }
+  }
+  
+  .active-link{
+    color: #ffc107;
+    }
+  
+    img {
+      width: 150px; 
+      height: 50px;
+    }
+  
+    a :hover {
+      text-decoration: none;
+      color: #ffc107;
+    }
+  
+  
+    @media screen and (max-width: 400px) {
+      img {
+        width: 110px; 
+        height: 50px;
+      }
+    }
+  
