@@ -6,10 +6,13 @@ import { AdminComponent } from './admin.component';
 import { SharedModule } from '../shared/shared.module';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { AdminHeaderComponent } from './navigation/admin-header/admin-header.component';
+import { AdminSidebarComponent } from './navigation/admin-sidebar/admin-sidebar.component';
+import { AdminFooterComponent } from './navigation/admin-footer/admin-footer.component';
 
 
 @NgModule({
-  declarations: [AdminComponent],
+  declarations: [AdminComponent, AdminHeaderComponent, AdminSidebarComponent, AdminFooterComponent],
   imports: [
     CommonModule,
     AdminRoutingModule,

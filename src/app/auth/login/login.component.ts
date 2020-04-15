@@ -24,7 +24,7 @@ export class LoginComponent implements OnInit {
     this._user = this.authService.user$;
     this._user.subscribe(user => {
       if (user) {
-        this.router.navigate(['/layouts']);
+        this.router.navigate(['/fastsmart/layouts']);
       }
     });
   }
@@ -35,7 +35,7 @@ export class LoginComponent implements OnInit {
       .signIn(this._loginRequest)
       .then(value => {
         this.isLoading = false;
-        this.router.navigate(['/layouts']);
+        this.router.navigate(['/fastsmart/layouts']);
       })
       .catch(error => {
         this.toaster.openSnackBar(error.message);

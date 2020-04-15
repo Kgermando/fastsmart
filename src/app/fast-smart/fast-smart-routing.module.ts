@@ -1,7 +1,5 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { AuthGuard } from '../auth/services/guard/auth.guard';
-import { NotFoundComponent } from '../shared/component/not-found/not-found.component';
 import { FastSmartComponent } from './fast-smart.component';
 
 

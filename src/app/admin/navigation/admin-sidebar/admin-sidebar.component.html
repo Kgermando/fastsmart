@@ -1,0 +1,57 @@
+<mat-nav-list>
+    <div class="profile-card">
+        <div class="header" *ngIf="authService.user$ | async as user">
+            <h2>{{ user?.name }}</h2>
+            <h4>{{ user?.email }}</h4>
+        </div>
+        <img src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Soufiane FADIL">
+    </div>
+ 
+    <mat-divider></mat-divider>
+
+    <h2 matSubheader>Statistiques</h2>
+
+    <a mat-list-item routerLinkActive="list-item-active" routerLink="/admin/stats" routerLinkActive="active-link">
+        Dashboard
+    </a>
+
+    <mat-divider></mat-divider>
+
+    <h2 matSubheader>Produits</h2>
+
+    <a mat-list-item routerLinkActive="list-item-active" routerLink="/admin/products/product-add" routerLinkActive="active-link">
+        Nouveau Produit
+    </a>
+    <a mat-list-item routerLinkActive="list-item-active" routerLink="//admin/products/product-list" routerLinkActive="active-link">
+        Tous les Produits
+    </a>
+
+    <mat-divider></mat-divider>
+
+    <h2 matSubheader>Tools</h2>
+
+    <a mat-list-item routerLinkActive="list-item-active" routerLink="/admin/contacts/contacts-recu" routerLinkActive="active-link">
+        <mat-icon>import_contacts</mat-icon>
+        Contacts
+    </a>
+
+    <a mat-list-item routerLinkActive="list-item-active" routerLink="/admin/contacts/contacts-ecrire" routerLinkActive="active-link">
+        <mat-icon>contact_phone</mat-icon>
+        Ecrire un Nouveau Mail
+    </a>
+
+    <mat-divider></mat-divider>
+
+    <h2 matSubheader>Utilisateurs</h2>
+
+    <a mat-list-item routerLinkActive="list-item-active" routerLink="/admin/users/users-add" routerLinkActive="active-link">
+        <mat-icon>person_outline</mat-icon>
+        Nouveau User
+    </a>
+
+    <a mat-list-item routerLinkActive="list-item-active" routerLink="/admin/users/users-list" routerLinkActive="active-link">
+        <mat-icon>people_outline</mat-icon>
+        Tous les users
+    </a>
+
+</mat-nav-list>

@@ -72,7 +72,7 @@ export class AuthService {
 
   signOut() {
     this.afAuth.signOut();
-    this.router.navigate(['/auth/login']);
+    this.router.navigate(['/fastsmart/auth/login']);
   }
 
   signIn(req: LoginRequest) {
@@ -94,7 +94,7 @@ export class AuthService {
       }
     };
     userRef.set(data, { merge: true });
-    return this.router.navigate(['/layouts/home']);
+    return this.router.navigate(['/fastsmart/layouts/home']);
   }
 
   isLogged(user: User): boolean {
