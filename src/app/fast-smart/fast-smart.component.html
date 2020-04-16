@@ -21,6 +21,13 @@
           </a>
         </div>
         <div class="auth_cart">
+          <span *ngIf="authService.user$ | async as user">
+             <a routerLink="/admin" mat-button matTooltip="Admin" routerLinkActive="active-link" *ngIf="user?.roles.admin === true">
+              <mat-icon aria-hidden="false" aria-label="Fast Smart Admin">settings</mat-icon>
+            </a>
+          </span>
+         
+
           <a routerLink="/fastsmart/layouts/cart" mat-button matTooltip="Votre Panier" routerLinkActive="active-link">
             <mat-icon aria-hidden="false" aria-label="Fast Smart panier" 
               matBadge="8" matBadgePosition="before" matBadgeColor="accent">shopping_cart</mat-icon>
@@ -30,7 +37,7 @@
             <mat-icon aria-hidden="false" aria-label="Fast Smart profile">person</mat-icon>
           </button>
           <mat-menu #menu="matMenu">
-            <button mat-menu-item routerLink="/layouts/profile" routerLinkActive="active-link" *ngIf="loggedIn$ | async">
+            <button mat-menu-item routerLink="/fastsmart/layouts/profile" routerLinkActive="active-link" *ngIf="loggedIn$ | async">
               <mat-icon aria-hidden="false" aria-label="login website">account_circle</mat-icon>
               Profile
             </button>

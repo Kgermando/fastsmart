@@ -60,9 +60,9 @@ export class ProductAddComponent implements OnInit {
       // Payement: '',
       CaterogyProduit: ['', Validators.required],
       CategorySecteur: ['', Validators.required],
-      UrlTest: [''],
+      UrlTest: ['', Validators.required],
       Rating: ['', Validators.required],
-      Support: [''],
+      Support: ['', Validators.required],
     })
   }
 
@@ -79,7 +79,7 @@ export class ProductAddComponent implements OnInit {
       Content: this.productFG.value.Content,
       Prix: this.productFG.value.Prix,
       productImageUrl: this.imgDownloadUrl,
-      Created: firebase.firestore.FieldValue.serverTimestamp(),
+      Created: new Date(),
       CaterogyProduit: this.productFG.value.CaterogyProduit,
       CategorySecteur: this.productFG.value.CategorySecteur,
       UrlTest: this.productFG.value.UrlTest,

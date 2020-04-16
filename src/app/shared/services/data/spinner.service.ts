@@ -5,7 +5,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatDialog } from '@angular/material/dialog';
 import { snackbar } from '../../models/config.interface';
 import { SnackbarComponent } from '../../component/snackbar/snackbar.component';
-// import { PasswordChangeComponent } from 'src/app/profile/components/password-change/password-change.component';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Injectable({
 	providedIn: 'root'
@@ -14,7 +14,7 @@ export class SpinnerService {
 	
 	constructor(private snackbar: MatSnackBar, 
 				public dialog: MatDialog, 
-				// private spinner: NgxSpinnerService
+				private spinner: NgxSpinnerService
 				) {}
 
 	openSnackBar(configuration: snackbar) {
@@ -27,10 +27,10 @@ export class SpinnerService {
 		});
   }
   
-//   showSpinner(){
-//     this.spinner.show();
-//   }
-//   hideSpinner(){
-//     this.spinner.hide();
-//   }
+  showSpinner(){
+    this.spinner.show();
+  }
+  hideSpinner(){
+    this.spinner.hide();
+  }
 }

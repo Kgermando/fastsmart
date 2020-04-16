@@ -1,1 +1,66 @@
-<p>product-list works!</p>
+  <div class="example-button-row m-40" fxLayout="row" fxLayoutAlign="end end">
+    <button mat-raised-button color="warn" class="w-250 h-58 fontSize-B" (click)="addProductClick()" >
+      <mat-icon>add</mat-icon>
+    </button>
+
+    <button mat-raised-button color="warn" class="w-250 h-58 fontSize-B" (click)="exportAsXLSX()" >
+      <mat-icon>local_printshop</mat-icon>
+    </button>
+  </div>
+
+  <br>
+  
+  <div fxLayout="column" class="m-40 mat-elevation-z8">
+    <mat-table #table [dataSource]="dataSource" matSort>
+      <!-- Position Column -->
+      <ng-container matColumnDef="Title" sticky>
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Nom du Produit </mat-header-cell>
+        <mat-cell *matCellDef="let element"> 
+            <a [routerLink]="[ '/admin/products/product-view', element.id ]"> {{ element.Title }}</a> 
+        </mat-cell>
+      </ng-container>
+  
+      <!-- Name Column -->
+      <ng-container matColumnDef="Prix">
+        <mat-header-cell *matHeaderCellDef> Product Prix </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{ element.Prix }} $</mat-cell>
+      </ng-container>
+
+       <!-- Name Column -->
+       <ng-container matColumnDef="CategorySecteur">
+        <mat-header-cell *matHeaderCellDef> Secteur </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{ element.CategorySecteur }} </mat-cell>
+      </ng-container>
+  
+      <!-- Weight Column -->
+      <ng-container matColumnDef="Created">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Date </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{ element.Created.toDate()| date: 'dd/MM/yyyy HH:mm:ss' }} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="edit">
+        <mat-header-cell *matHeaderCellDef> Modifier </mat-header-cell>
+        <mat-cell *matCellDef="let element"> 
+            <a [routerLink]="[ '/admin/products/product-edit', element.id ]">
+                <mat-icon>create</mat-icon>
+            </a> 
+        </mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="remove" stickyEnd>
+        <mat-header-cell *matHeaderCellDef> Supprimer </mat-header-cell>
+        <mat-cell *matCellDef="let element" class="cursor-pointer">
+            <a (click)="removeProduct(element.id)">
+                <mat-icon>delete_sweep</mat-icon>
+            </a> 
+        </mat-cell>
+      </ng-container>
+  
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+    </mat-table>
+    <mat-paginator
+      [pageSizeOptions]="[5, 10, 20]"
+      showFirstLastButtons
+    ></mat-paginator>
+  </div>
+  

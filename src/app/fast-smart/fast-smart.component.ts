@@ -14,8 +14,6 @@ export class FastSmartComponent implements OnInit {
 
   loggedIn$: Observable<boolean>;
   loggedOut$: Observable<boolean>;
-  pictureUrl$: Observable<string>;
-  displayName$: Observable<string>;
   
   
   isActive = true;
@@ -35,11 +33,6 @@ export class FastSmartComponent implements OnInit {
     this.loggedOut$ = this.loggedIn$.pipe(
       map(loggedIn => !loggedIn)
     );
-
-    this.pictureUrl$ =
-            this.afAuth.authState.pipe(map(user => user ? user.photoURL: null));
-    
-    this.displayName$ = this.afAuth.authState.pipe(map(user => user ? user.displayName: null))
   }
 
   async signOut() {

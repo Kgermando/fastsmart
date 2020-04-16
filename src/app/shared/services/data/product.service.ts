@@ -70,43 +70,43 @@ export class ProductService {
       );
   }
 
-  // getProductBySupplier(): Observable<any> {
-  //   return new Observable(observer => {
-  //     this.angularfireauth.authState.subscribe(user => {
-  //       if (user) {
-  //         this.userId = user.uid;
-  //         this.afs
-  //           .collection<Product>("Products", ref =>
-  //             ref.where("supplierId", "==", this.userId)
-  //           )
-  //           .snapshotChanges()
-  //           .subscribe(product => {
-  //             observer.next(product);
-  //           });
-  //       } else {
-  //         observer.next(null);
-  //       }
-  //     });
-  //   });
-  // }
+  getProductBySupplier(): Observable<any> {
+    return new Observable(observer => {
+      this.angularfireauth.authState.subscribe(user => {
+        if (user) {
+          this.userId = user.uid;
+          this.afs
+            .collection<Product>("Products", ref =>
+              ref.where("supplierId", "==", this.userId)
+            )
+            .snapshotChanges()
+            .subscribe(product => {
+              observer.next(product);
+            });
+        } else {
+          observer.next(null);
+        }
+      });
+    });
+  }
 
-  // getProfileBySupplierId(supplierID): Observable<any> {
-  //   return new Observable(observer => {
-  //     this.afs
-  //       .collection("Person")
-  //       .doc(supplierID)
-  //       .snapshotChanges()
-  //       .pipe(
-  //         map(changes => {
-  //           const data = changes.payload.data();
-  //           const id = changes.payload.id;
-  //           return { id, data };
-  //         })
-  //       ).subscribe(profile=>{
-  //         observer.next(profile);
-  //       })
-  //   });
-  // }
+  getProfileBySupplierId(supplierID): Observable<any> {
+    return new Observable(observer => {
+      this.afs
+        .collection("users")
+        .doc(supplierID)
+        .snapshotChanges()
+        .pipe(
+          map(changes => {
+            const data = changes.payload.data();
+            const id = changes.payload.id;
+            return { id, data };
+          })
+        ).subscribe(profile=>{
+          observer.next(profile);
+        })
+    });
+  }
 
   removeProductByID(id){
     this.afs.collection("Products").doc(id).delete();
