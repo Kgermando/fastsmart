@@ -22,6 +22,10 @@
         padding-bottom: 35px;
     }
 
+    .title {
+        text-align: center;
+    }
+
     .example-form {
         margin: 20% 10%;
         min-width: 150px;
@@ -42,6 +46,8 @@
 
 @media screen and (max-width: 961px) {
     .contact {
+        display: flex;
+        flex-direction: column;
    
         .contact_1 {
             display: none;
@@ -55,23 +61,50 @@
                 font-size: 20px;
                 padding-bottom: 25px;
             }
+
+            .title {
+                text-align: center;
+            }
         
             .example-form {
-                margin: 20% 10%;
+                margin: 8% 10%;
                 min-width: 150px;
                 max-width: 500px;
         
                 button {
                     float: right;
                 }
-              }
-              
-              .example-full-width {
-                width: 100%;
-              }
+
+                .example-full-width {
+                    width: 100%;
+                }
+
+            }
         
+        }
+
+        .divider_1 {
+            display: flex;
+            justify-content: center;
+            width: 80%;
+        }
+
+        .contact_3 {
+            display: flex;
+            flex-direction: column;
+            margin: 8% 10%;
+
+            .cnt_title {
+                text-align: center;
+                padding-bottom: 15px;
+            }
+
+            .divider {
+                width: 25%;
+                padding-bottom: 10px;
             }
         }
+    }
         
 
 }

@@ -10,9 +10,10 @@ import { ContactsViewComponent } from './contacts-view/contacts-view.component';
 const routes: Routes = [
   { path: '', component: ContactsComponent, children: [
     { path: 'contacts-recu', component: ContactsRecuComponent},
-    { path: 'contacts-ecrire', component: ContactsEcrireComponent },
-    { path: 'contacts-edit/:id', component: ContactsEditComponent },
-    { path: 'contacts-view/:id', component: ContactsViewComponent },
+    { path: 'contact-ecrire', component: ContactsEcrireComponent },
+    { path: 'contact-edit/:id', component: ContactsEditComponent },
+    { path: 'contact-view/:id', component: ContactsViewComponent },
+    { path: 'contact-view/:id/admin/contacts/contact-ecrire', component: ContactsEcrireComponent },
 
     { path: '', redirectTo: 'contacts-recu', pathMatch: 'full'}
   ]}

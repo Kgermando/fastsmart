@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import * as jsPDF from 'jspdf';
 import { ProductService } from 'src/app/shared/services/data/product.service';
 import { Product } from 'src/app/shared/models/product';
+import { SpinnerService } from 'src/app/shared/services/data/spinner.service';
 
 @Component({
   selector: 'app-product-view',
@@ -14,8 +15,8 @@ export class ProductViewComponent implements OnInit {
   product: Product = {};
 
   constructor(private route: ActivatedRoute,
-    private content: ElementRef,
-    private productService: ProductService) {}
+              private content: ElementRef,
+              private productService: ProductService) {}
 
     downloadPDF() {
       console.log('Download here');
@@ -40,8 +41,10 @@ export class ProductViewComponent implements OnInit {
     }
   
     getDetails(id: string): void {
+      // this.spinnerService.showSpinner();
       this.productService.getOneProduct(id).subscribe(product => {
         this.product = product;
+        // this.spinnerService.hideSpinner();
       });
     }
 

@@ -6,7 +6,6 @@ import { Router } from '@angular/router';
 import { ProductService } from 'src/app/shared/services/data/product.service';
 import { AngularFireStorage, AngularFireUploadTask } from '@angular/fire/storage';
 import { SpinnerService } from 'src/app/shared/services/data/spinner.service';
-import * as firebase from 'firebase';
 import { Observable } from 'rxjs';
 import { finalize } from 'rxjs/operators';
 
@@ -39,7 +38,6 @@ export class ProductAddComponent implements OnInit {
 
   constructor(private formBuilder: FormBuilder,
               private router: Router,
-              private db: AngularFirestore,
               private storage: AngularFireStorage,
               private productService: ProductService,
               private sharedService: SpinnerService) { 

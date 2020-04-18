@@ -1,38 +1,75 @@
 <section class="contact">
     <div class="contact_1">
-        <img src="/assets/img/contact.svg" alt="">
+        <img src="/assets/img/contact.svg" alt="Fast Smart">
     </div>
     <div class="contact_2">
-        <form class="example-form">
-            <h2>Contactez-Nous</h2>
-  
+        <form class="example-form" [formGroup]="contactFG">
+            <h2 class="title">Contactez-Nous</h2>
+
             <mat-form-field class="example-full-width">
             <mat-label>Prénom et Nom</mat-label>
-                <input matInput placeholder="Nom Complet">
+                <input matInput placeholder="Nom Complet" formControlName="FullName">
             </mat-form-field>
 
             <mat-form-field class="example-full-width">
                 <mat-label>Téléphone</mat-label>
-                <input matInput placeholder="Téléphone">
+                <input matInput placeholder="Téléphone" formControlName="Telephone">
             </mat-form-field>
 
             <mat-form-field class="example-full-width">
                 <mat-label>Email</mat-label>
-                <input matInput placeholder="Email">
+                <input matInput placeholder="Email" formControlName="Email">
             </mat-form-field>
 
             <mat-form-field class="example-full-width">
                 <mat-label>Sujet</mat-label>
-                <input matInput placeholder="Sujet">
+                <input matInput placeholder="Objet du Message" formControlName="Sujet">
             </mat-form-field>
         
             <mat-form-field class="example-full-width">
             <mat-label>Message</mat-label>
-            <textarea matInput rows="3" placeholder="Message..."></textarea>
+            <textarea matInput rows="3" placeholder="Message..." formControlName="Message"></textarea>
             </mat-form-field>
-
-            <button mat-raised-button color="primary">Envoyez</button>
+            
+            <button mat-raised-button color="primary" (click)="save()" name="loginBtn">
+                <div *ngIf="loading" fxLayout="column" fxLayoutAlign="center center">
+                  <mat-spinner [diameter]="30" color="accent" *ngIf="!loading"></mat-spinner>
+                </div>
+                <span fxLayout="row" fxLayoutAlign="space-evenly stretch center">Envoyez</span>
+            </button>
         </form>
+    </div>
+
+    <div fxLayout="column" fxLayoutAlign="center center">
+        <mat-divider  class="divider_1"></mat-divider> 
+    </div>
+   
+
+    <div class="contact_3">
+
+        
+        <div fxLayout="column" fxLayoutAlign="center center">
+            <h2 class="cnt_title">Nos coordonnées</h2>
+            <mat-divider class="divider"></mat-divider> 
+        </div>
+
+        <div fxLayout="row" fxLayoutAlign="start start">
+            <div fxFlex='5' class='font-size-20'>
+                <mat-icon aria-hidden="false" aria-label="Fast Smart acceuil">alternate_email</mat-icon>
+            </div>
+            <div fxFlex='95' class='font-size-80'>
+                contact@eventdrc.com
+            </div>
+        </div>
+
+        <div fxLayout="row" fxLayoutAlign="start start">
+            <div fxFlex='5' class='font-size-20'>
+                <mat-icon aria-hidden="false" aria-label="Fast Smart acceuil">phone</mat-icon>
+            </div>
+            <div fxFlex='95' class='font-size-80'>
+                +243 81 795 32 32
+            </div>
+        </div>
     </div>
 
 </section>

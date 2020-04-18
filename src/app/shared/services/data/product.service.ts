@@ -3,7 +3,7 @@ import { map, first } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 import { QueryFn, AngularFirestoreCollection, AngularFirestore,
          AngularFirestoreDocument } from '@angular/fire/firestore';
-         import { AngularFireAuth } from '@angular/fire/auth';
+import { AngularFireAuth } from '@angular/fire/auth';
 import { Product } from '../../models/product';
 
 
@@ -56,37 +56,18 @@ export class ProductService {
         console.log(res);
       });
   }
+  
 
-  getCollection$(ref?: QueryFn): Observable<Product[]> {
-    return this.afs.collection<Product>('Products', ref)  // => ref.orderBy('Created', 'asc')
-      .snapshotChanges()
-      .pipe(map(actions => {
-        return actions.map(a => {
-          const data = a.payload.doc.data() as Product;
-          const id = data.id;
-          return { id, ...data };
-        });
-      })
-      );
-  }
-
-  getProductBySupplier(): Observable<any> {
+  getProductBySupplier(ref?: QueryFn): Observable<any> {
     return new Observable(observer => {
       this.angularfireauth.authState.subscribe(user => {
-        if (user) {
-          this.userId = user.uid;
-          this.afs
-            .collection<Product>("Products", ref =>
-              ref.where("supplierId", "==", this.userId)
-            )
+    
+          this.afs.collection<Product>("Products", ref)
             .snapshotChanges()
             .subscribe(product => {
               observer.next(product);
             });
-        } else {
-          observer.next(null);
-        }
-      });
+        } );
     });
   }
 
@@ -146,7 +127,5 @@ export class ProductService {
       }
     }));
   }
-
-
 
 }

@@ -1,22 +1,157 @@
 
-{{ product.Title}}
+<div class='desktop'>
+  <div fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="24px">
+    <div fxFlex='50'>
+      <div *ngIf="product.productImageUrl">
+        <img [src]="product.productImageUrl" class='desktop_img' />
+      </div>
+      <br>
+      <div fxLayout="column" fxLayoutAlign="start start">
+        <div fxFlex='20' class='font-size-20'>A Propos de {{ product.CaterogyProduit }}:</div>
+        <div fxFlex='80' class='font-size-80 maxh-80' style='overflow: auto; '>{{ product.Content }}</div>
+      </div>
+    </div>
+    <div *ngIf="product" fxFlex='50'>
+      <div fxLayout="column" fxLayoutAlign="center stretch" fxLayoutGap="24px" class='py-24'>
+  
+          <div fxLayout="column" fxLayoutAlign="center stretch" fxLayoutGap="12px" class='pb-24'>
+            <div class='font-size-36 pb-4'><h2>{{ product.Title }}</h2>
+              <hr>
+            </div>
+            <div fxLayout="column" fxLayoutAlign="start stretch" fxLayoutGap="12px">
+              <div fxLayout="row" fxLayoutAlign="start start">
+                <div fxFlex='20' class='font-size-20'>Prix:</div>
+                <div fxFlex='80' class='font-size-80'>{{ product.Prix }} $</div>
+  
+              </div>
+              <div fxLayout="row" fxLayoutAlign="start start">
+                <div fxFlex='20' class='font-size-20'>Secteur:</div>
+                <div fxFlex='80' class='font-size-80'>{{ product.CategorySecteur }}</div>
+              </div>
+              <div fxLayout="row" fxLayoutAlign="start start">
+                <div fxFlex='20' class='font-size-20'>Description:</div>
+                <div fxFlex='80' class='font-size-80 maxh-80' style='overflow: auto; '>{{ product.Description }}</div>
+              </div>
 
-{{ product.Prix }}
+              <div fxLayout="row" fxLayoutAlign="start start">
+                <div fxFlex='20' class='font-size-20'>Type de Produit:</div>
+                <div fxFlex='80' class='font-size-80' style='overflow: auto; '>{{ product.CaterogyProduit }}</div>
+              </div>
 
-{{ product.productImageUrl }}
+              <div fxLayout="row" fxLayoutAlign="start start">
+                <div fxFlex='20' class='font-size-20'>Lien pour Essayer:</div>
+                <div fxFlex='80' class='font-size-80' style='overflow: auto; '>{{ product.UrlTest }}</div>
+              </div>
 
-{{ product.Description }}
+              <div fxLayout="row" fxLayoutAlign="start start">
+                <div fxFlex='20' class='font-size-20'>Rating:</div>
+                <div fxFlex='80' class='font-size-80' style='overflow: auto; '>{{ product.Rating }}/5</div>
+              </div>
 
-{{ product.Content }}
+              <div fxLayout="row" fxLayoutAlign="start start">
+                <div fxFlex='20' class='font-size-20'>Support:</div>
+                <div fxFlex='80' class='font-size-80' style='overflow: auto; '>{{ product.Support }} mois</div>
+              </div>
 
-{{ product.CategorySecteur }}
+              <div fxLayout="row" fxLayoutAlign="start start">
+                <div fxFlex='20' class='font-size-20'>Created:</div>
+                <div fxFlex='80' class='font-size-80' style='overflow: auto; '>{{ product.Created | date:'dd/MM/yyy H:mm:ss' }}</div>
+              </div>
+            </div>
+  
+          </div>
 
-{{ product.CaterogyProduit }}
+        </div>
+    </div>
+  </div>
+</div>
 
-{{ product.UrlTest }}
+<!-- Mobile -->
 
-{{ product.Rating }}
 
-{{ product.Support }}
+<div class='mobile'>
+  <div fxLayout="column" fxLayoutAlign="start start" fxLayoutGap="24px">
+    <div fxFlex='50'>
+      <div *ngIf="product.productImageUrl">
+        <img [src]="product.productImageUrl" class='mobile_img'/>
+      </div>
+      <!-- <div fxLayout="row" fxLayoutAlign="start start">
+        <div fxFlex='80' class='font-size-20 maxh-80' style='overflow: auto; '>{{ product.Content }}</div>
+      </div> -->
+    </div>
+    <div *ngIf="product" fxFlex='50'>
+      <div fxLayout="column" fxLayoutAlign="center stretch" fxLayoutGap="24px" class='py-24'>
+  
+          <div fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="12px" class='pb-24'>
+            <div class='font-size-36 pb-4'><h2>{{ product.Title }}</h2>
+              <hr class="hr_title">
+            </div>
+            <div fxLayout="column" fxLayoutAlign="start stretch" fxLayoutGap="12px">
+              <div fxLayout="column" fxLayoutAlign="start start">
+                <div fxFlex='20' class='font-size-20'>A Propos de {{ product.CaterogyProduit }}:</div>
+                <div fxFlex='80' class='font-size-80 maxh-80'>{{ product.Content }}</div>
+              </div>
 
-{{ product.Created | date:'dd/MM/yyy H:mm:ss' }}
+              <hr class="hr_body">
+
+              <div fxLayout="column" fxLayoutAlign="start start">
+                <div fxFlex='20' class='font-size-20'>Prix:</div>
+                <div fxFlex='80' class='font-size-80'>{{ product.Prix }} $</div>
+              </div>
+
+              <hr class="hr_body">
+
+              <div fxLayout="column" fxLayoutAlign="start start">
+                <div fxFlex='20' class='font-size-20'>Secteur:</div>
+                <div fxFlex='80' class='font-size-80'>{{ product.CategorySecteur }}</div>
+              </div>
+
+              <hr class="hr_body">
+
+              <div fxLayout="column" fxLayoutAlign="start start">
+                <div fxFlex='20' class='font-size-20'>Résumé:</div>
+                <div fxFlex='80' class='font-size-80 maxh-80' style='overflow: auto; '>{{ product.Description }}</div>
+              </div>
+
+              <hr class="hr_body">
+
+              <div fxLayout="column" fxLayoutAlign="start start">
+                <div fxFlex='20' class='font-size-20'>Produit:</div>
+                <div fxFlex='80' class='font-size-80' style='overflow: auto; '>{{ product.CaterogyProduit }}</div>
+              </div>
+
+              <hr class="hr_body"> 
+
+              <div fxLayout="column" fxLayoutAlign="start start">
+                <div fxFlex='20' class='font-size-20'>Lien pour essayer:</div>
+                <div fxFlex='80' class='font-size-80' style='overflow: auto; '>{{ product.UrlTest }}</div>
+              </div>
+
+              <hr class="hr_body">
+
+              <div fxLayout="column" fxLayoutAlign="start start">
+                <div fxFlex='20' class='font-size-20'>Rating:</div>
+                <div fxFlex='80' class='font-size-80' style='overflow: auto; '>{{ product.Rating }}/5</div>
+              </div>
+
+              <hr class="hr_body">
+
+              <div fxLayout="column" fxLayoutAlign="start start">
+                <div fxFlex='20' class='font-size-20'>Support:</div>
+                <div fxFlex='80' class='font-size-80' style='overflow: auto; '>{{ product.Support }} mois</div>
+              </div>
+
+              <hr class="hr_body">
+
+              <div fxLayout="column" fxLayoutAlign="start start">
+                <div fxFlex='20' class='font-size-20'>Created:</div>
+                <div fxFlex='80' class='font-size-80' style='overflow: auto; '>{{ product.Created | date:'dd/MM/yyy H:mm:ss' }}</div>
+              </div>
+            </div>
+  
+          </div>
+
+        </div>
+    </div>
+  </div>
+</div>

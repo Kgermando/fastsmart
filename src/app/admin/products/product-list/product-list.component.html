@@ -10,7 +10,7 @@
 
   <br>
   
-  <div fxLayout="column" class="m-40 mat-elevation-z8">
+  <div fxLayout="column" class="example-container mat-elevation-z8">
     <mat-table #table [dataSource]="dataSource" matSort>
       <!-- Position Column -->
       <ng-container matColumnDef="Title" sticky>
@@ -46,7 +46,7 @@
             </a> 
         </mat-cell>
       </ng-container>
-      <ng-container matColumnDef="remove" stickyEnd>
+      <ng-container matColumnDef="remove" >
         <mat-header-cell *matHeaderCellDef> Supprimer </mat-header-cell>
         <mat-cell *matCellDef="let element" class="cursor-pointer">
             <a (click)="removeProduct(element.id)">

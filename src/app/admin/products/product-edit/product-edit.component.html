@@ -1,1 +1,179 @@
-<p>product-edit works!</p>
+<form [formGroup]="productFG" id="file-upload-form" class="uploader">
+    <div
+      fxLayout="row"
+      fxLayoutAlign="center center"
+      fxLayoutGap="30px"
+      class="mt-100"
+    >
+      <mat-card [class.mat-elevation-z10]="true">
+        <div
+          fxLayout="column"
+          fxLayoutAlign="center center"
+          fxLayoutGap="30px"
+          class="px-150">
+  
+          <div
+            class="dropzone"
+            DropZone
+            (hovered)="toggleHover($event)"
+            (dropped)="startUpload($event)"
+            [class.hovering]="isHovering"
+            fxLayout="column"
+            fxLayoutAlign="center center"
+            fxLayoutGap="10px"
+            style="width: 150%;"
+            class="pt-20">
+            <input
+              id="file-upload"
+              type="file"
+              name="fileUpload"
+              accept="image/*"
+              (change)="startUpload($event.target.files)"/>
+            <label for="file-upload" id="file-drag">
+              <img id="file-image" src="#" alt="Preview" class="hidden" />
+              <div id="start">
+                <i class="fa fa-upload" aria-hidden="true"></i>
+                <div>Select a file or drag here</div>
+                <div id="notimage" class="hidden">Please select an image</div>
+                <span id="file-upload-btn" class="btn btn-primary">Select a file</span>
+              </div>
+              <div id="response" class="hidden">
+                <div id="messages"></div>
+                <div *ngIf="percentage | async as pct">
+                  <progress
+                    class="progress is-info"
+                    [value]="pct"
+                    max="100"
+                    id="file-progress">
+                    <span>{{ pct }}</span>%
+                  </progress>
+                </div>
+              </div>
+            </label>
+          </div>
+  
+          <div *ngIf="percentage | async as pct">
+            <progress class="progress is-info" [value]="pct" max="100">
+            </progress>
+  
+            {{ pct | number }}%
+          </div>
+  
+          <div fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="10px">
+            <div>
+                <mat-form-field appearance="outline">
+                  <mat-label>Nom du Produit</mat-label>
+                  <input type="text" matInput placeholder="Titre" formControlName="Title"/>
+                </mat-form-field>
+              </div>
+              <div>
+                <mat-form-field appearance="outline">
+                  <mat-label>Prix</mat-label>
+                  <input type="number" matInput placeholder="Prix" formControlName="Prix"/>
+                </mat-form-field>
+              </div>
+              <div>
+                <mat-form-field appearance="outline">
+                  <mat-label>Description</mat-label>
+                  <input type="text" matInput placeholder="Description" formControlName="Description"/>
+                </mat-form-field>
+              </div>
+    
+              <div>
+                <mat-form-field appearance="outline">
+                  <mat-label>Content</mat-label>
+                  <textarea matInput placeholder="Content" formControlName="Content"></textarea>
+                </mat-form-field>
+              </div>
+    
+              <div>
+                <mat-form-field appearance="outline">
+                  <mat-label>Url</mat-label>
+                  <input type="text" matInput placeholder="Adresse URL du produit pour test" formControlName="UrlTest"/>
+                </mat-form-field>
+              </div>
+              
+              <div>
+                <mat-form-field appearance="outline">
+                  <mat-label>Valeur du produit sur 5</mat-label>
+                  <input type="text" matInput placeholder="Rating" formControlName="Rating"/>
+                </mat-form-field>
+              </div>
+    
+              <div>
+                <mat-form-field appearance="outline">
+                  <mat-label>Durée de prise en charge</mat-label>
+                  <input type="text" matInput placeholder="Support" formControlName="Support"/>
+                </mat-form-field>
+              </div>
+    
+              <div>
+                <mat-form-field appearance='outline'>
+                  <mat-label>Categorie du produit</mat-label>
+                  <mat-select formControlName="CaterogyProduit">
+                    <mat-option value="AUTRES">-- AUTRES --</mat-option>
+                    <mat-option value="SITE WEB">SITE WEB</mat-option>
+                    <mat-option value="LOGICIELS">LOGICIELS</mat-option>
+                    <mat-option value="APPLICATIONS MOBILES">APPLICATIONS MOBILES</mat-option>
+                    <mat-option value="APPLICATIONS WEB">APPLICATIONS WEB</mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+    
+              <div>
+                <mat-form-field appearance='outline'>
+                  <mat-label>Categorie du secteur</mat-label>
+                  <mat-select formControlName="CategorySecteur">
+                    <mat-option value="AUTRES">-- AUTRES --</mat-option>
+                    <mat-option value="SANTE">SANTE</mat-option>
+                    <mat-option value="TRANSPORT">TRANSPORT</mat-option>
+                    <mat-option value="TELECOMMUNICATION">TELECOMMUNICATION</mat-option>
+                    <mat-option value="FINANCE">FINANCE</mat-option>
+                    <mat-option value="ECONOMIE">ECONOMIE</mat-option>
+                    <mat-option value="COMMERCE">COMMERCE</mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+    
+              <div>
+                <div>
+                  <button type="submit" (click)="onSubmit()" mat-raised-button color="primary" [disabled]="!productFG.valid">
+                    Modifiez le produit
+                  </button>
+                </div>
+              </div>
+            </div>
+        </div>
+      </mat-card>
+  
+      <div >
+        <div
+          fxLayout="row"
+          fxLayoutAlign="center center"
+          fxLayoutGap="10px"
+          class="mt-100"
+        >
+        <div *ngIf="product">
+            <mat-card class="example-card" [class.mat-elevation-z8]="true">
+              <mat-card-header>
+                <div mat-card-avatar class="example-header-image"></div>
+                <mat-card-title>Fast Smart</mat-card-title>
+                <mat-card-subtitle>fastsmart.com</mat-card-subtitle>
+              </mat-card-header>
+              <div *ngIf="product.Title">
+                    <img [src]="product.productImageUrl" />
+              </div>
+              <mat-card-content>
+                <h1>{{ productFG.value.Title }}</h1>
+                <p>{{ productFG.value.Description }}</p>
+              </mat-card-content>
+              <div fxLayoutAlign="end end">
+                
+              </div>
+            </mat-card>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+  
