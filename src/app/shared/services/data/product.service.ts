@@ -111,7 +111,19 @@ export class ProductService {
     });
   }
 
-
+   // Get all data in database
+   getCollection$(ref?: QueryFn): Observable<Product[]> {
+    return this.afs.collection<Product>('Products', ref)  // => ref.orderBy('Created', 'asc')
+      .snapshotChanges()
+      .pipe(map(actions => {
+        return actions.map(a => {
+          const data = a.payload.doc.data() as Product;
+          const id = data.id;
+          return { id, ...data };
+        });
+      })
+      );
+  }
  
   // Geet one data in database
   getOneProduct(idProduct: string) {

@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 // Angular Material Components
 import {A11yModule} from '@angular/cdk/a11y';
@@ -52,6 +54,10 @@ import { SearchFilterPipe } from './services/pipes/search-filter.pipe';
 import { SnackbarComponent } from './component/snackbar/snackbar.component';
 import { SmartDatePipe } from './services/pipes/smart-date.pipe';
 
+import { NgxSpinnerModule } from "ngx-spinner";
+import { NgxStarRatingModule } from 'ngx-star-rating';
+
+
 @NgModule({
   declarations: [NotFoundComponent, SmartDatePipe, SearchFilterPipe, SnackbarComponent],
   imports: [
@@ -101,7 +107,13 @@ import { SmartDatePipe } from './services/pipes/smart-date.pipe';
     PortalModule,
     ScrollingModule,
 
-    FlexLayoutModule
+    FlexLayoutModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+
+    NgxSpinnerModule,
+    NgxStarRatingModule
   ],
   exports: [
     A11yModule,
@@ -149,6 +161,11 @@ import { SmartDatePipe } from './services/pipes/smart-date.pipe';
     ScrollingModule,
 
     FlexLayoutModule,
+    FormsModule,
+    ReactiveFormsModule,
+    
+    NgxSpinnerModule,
+    NgxStarRatingModule,
 
     // Pipes
     SmartDatePipe,

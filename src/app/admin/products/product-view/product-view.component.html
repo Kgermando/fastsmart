@@ -7,7 +7,7 @@
       </div>
       <br>
       <div fxLayout="column" fxLayoutAlign="start start">
-        <div fxFlex='20' class='font-size-20'>A Propos de {{ product.CaterogyProduit }}:</div>
+        <div fxFlex='20' class='font-size-20'>Description de {{ product.CaterogyProduit }}:</div>
         <div fxFlex='80' class='font-size-80 maxh-80' style='overflow: auto; '>{{ product.Content }}</div>
       </div>
     </div>
@@ -88,7 +88,7 @@
             </div>
             <div fxLayout="column" fxLayoutAlign="start stretch" fxLayoutGap="12px">
               <div fxLayout="column" fxLayoutAlign="start start">
-                <div fxFlex='20' class='font-size-20'>A Propos de {{ product.CaterogyProduit }}:</div>
+                <div fxFlex='20' class='font-size-20'>Description de {{ product.CaterogyProduit }}:</div>
                 <div fxFlex='80' class='font-size-80 maxh-80'>{{ product.Content }}</div>
               </div>
 
@@ -124,7 +124,7 @@
 
               <div fxLayout="column" fxLayoutAlign="start start">
                 <div fxFlex='20' class='font-size-20'>Lien pour essayer:</div>
-                <div fxFlex='80' class='font-size-80' style='overflow: auto; '>{{ product.UrlTest }}</div>
+                <div fxFlex='80' class='font-size-80' style='overflow: auto; '>http://{{ product.UrlTest }}</div>
               </div>
 
               <hr class="hr_body">

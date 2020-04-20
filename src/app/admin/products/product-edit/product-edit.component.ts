@@ -22,14 +22,14 @@ export class ProductEditComponent implements OnInit {
     id: '',
     Title: '',
     Description: '',
-    Prix: '',
+    Prix: 0,
     productImageUrl: '',
     Content: '',
     // Payement: '',
     CaterogyProduit: '',
     CategorySecteur: '',
     UrlTest: '',
-    Rating: '',
+    Rating: 0,
     Support: '',
     Created: null
   }

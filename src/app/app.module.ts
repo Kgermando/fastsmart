@@ -16,8 +16,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SharedModule } from './shared/shared.module';
 import { AuthModule } from './auth/auth.module';
 
-import { NgxSpinnerModule } from "ngx-spinner";
-
 import { environment } from 'src/environments/environment';
 
 @NgModule({
@@ -37,8 +35,6 @@ import { environment } from 'src/environments/environment';
     AngularFireStorageModule, // storage
     // Enable Offline Data in AngularFirestore
     AngularFirestoreModule.enablePersistence(),
-
-    NgxSpinnerModule,
 
     AuthModule,
     SharedModule

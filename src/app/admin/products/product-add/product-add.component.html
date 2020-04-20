@@ -60,7 +60,8 @@
           <div>
             <mat-form-field appearance="outline">
               <mat-label>Description</mat-label>
-              <input type="text" matInput placeholder="Description" formControlName="Description"/>
+              <input type="text" #input maxlength="80" matInput placeholder="Description" formControlName="Description"/>
+              <mat-hint align="end">{{input.value?.length || 0}}/80</mat-hint>
             </mat-form-field>
           </div>
 
@@ -81,7 +82,8 @@
           <div>
             <mat-form-field appearance="outline">
               <mat-label>Valeur du produit sur 5</mat-label>
-              <input type="text" matInput placeholder="Rating" formControlName="Rating"/>
+              <input type="text" #rating maxlength="1" matInput placeholder="Rating" formControlName="Rating"/>
+              <mat-hint align="end">{{rating.value?.length || 0}}/1</mat-hint>
             </mat-form-field>
           </div>
 

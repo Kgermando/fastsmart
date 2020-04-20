@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { ProductService } from 'src/app/shared/services/data/product.service';
+import { Product } from 'src/app/shared/models/product';
 
 @Component({
   selector: 'app-detail',
@@ -7,9 +10,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DetailComponent implements OnInit {
 
-  constructor() { }
+  product: Product = {};
 
-  ngOnInit(): void {
-  }
+  constructor(private route: ActivatedRoute,
+              private content: ElementRef,
+              private productService: ProductService) {}
+
+  
+    ngOnInit(): void {
+      const id: string = this.route.snapshot.params.id;
+      this.getDetails(id);
+    }
+  
+    getDetails(id: string): void {
+      // this.spinnerService.showSpinner();
+      this.productService.getOneProduct(id).subscribe(product => {
+        this.product = product;
+        // this.spinnerService.hideSpinner();
+      });
+    }
 
 }

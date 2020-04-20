@@ -1,7 +1,6 @@
 <section class="home_1">
   <mat-toolbar-row>
     <form  class="mat-elevation-z10">
-      <!-- <h4 class="home_1_title">Moteur de Recherche Site Web</h4> -->
       <input type="search" name="search" class="search" placeholder="Recherche..." [(ngModel)]="searchTerm" (keyup.enter)="search()">
       <input type="button" mat-button value="search" name="submit" (click)="search()" class="submit" matTooltip="Cliquez ici pour rechercher">
     </form>
@@ -17,29 +16,37 @@
         fxLayout.lt-sm="column"
         fxLayoutGap="8%"
         fxLayoutAlign="flex-start">
-    <ng-container *ngFor="let _ of [1,2,3,4,5,6,7,8]">
+    <ng-container *ngFor="let product of products$">
       <mat-card class="example-card" fxFlex="0 1 calc(33.3% - 8%)" fxFlex.lt-md="0 1 calc(50% - 8%)" fxFlex.lt-sm="100%">
-        <img class="image_avatar" mat-card-image src="../../../assets/img/car.png" alt="Photo of a Shiba Inu">
-        <mat-card-content>
-          <mat-card-title>Voiture</mat-card-title>
-          <p >
-            The Shiba Inu is the smallest
+        <img class="image_avatar" mat-card-image [src]="product.productImageUrl" alt="Photo of a Shiba Inu">
+        <mat-card-content  (click)="detail(product.id)">
+          <mat-card-title>{{ product.Title }}</mat-card-title>
+          <p>
+            {{ product.Description }}
           </p>
         </mat-card-content>
         <mat-card-actions>
-          <button class="rating" mat-icon-button [color]="color" *ngFor="let ratingId of ratingArr;index as i" [id]="'star_'+i">
+          <!-- <button class="rating" mat-icon-button [color]="color" *ngFor="let ratingId of ratingArr;index as i" [id]="'star_'+i">
             <mat-icon>
               {{showIcon(i)}}
             </mat-icon>
+          </button> -->
+
+          <button mat-icon-button>
+            {{ product.Rating }}/5
           </button>
+
               
-          <button class="add_panier" mat-raised-button color="accent" matTooltip="Ajoutez au panier">
+          <button class="add_panier" mat-raised-button color="accent" matTooltip="Ajoutez au panier" (click)="addToCart()">
             <mat-icon aria-hidden="false" aria-label="Fast Smart panier cart">shopping_cart</mat-icon>
           </button>
         </mat-card-actions>
       </mat-card>
     </ng-container>
+
+    <ng-container #content>
+
+    </ng-container>
   </div>
 
 </section>
-

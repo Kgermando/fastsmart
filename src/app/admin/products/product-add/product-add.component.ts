@@ -21,14 +21,14 @@ export class ProductAddComponent implements OnInit {
     id: '',
     Title: '',
     Description: '',
-    Prix: '',
+    Prix: 0,
     productImageUrl: '',
     Content: '',
     // Payement: '',
     CaterogyProduit: '',
     CategorySecteur: '', // Ex: Sante , transport, technologies
     UrlTest: '',
-    Rating: '',
+    Rating: 0,
     Support: '',
     Created: null
   }

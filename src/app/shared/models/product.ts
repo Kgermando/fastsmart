@@ -1,7 +1,7 @@
 export interface Product {
     id?: string;
     Title?: string;
-    Prix?: string;
+    Prix?: number;
     Description?: string;
     productImageUrl?: string;
     Content?: string;
@@ -9,7 +9,7 @@ export interface Product {
     CaterogyProduit?: string;
     CategorySecteur?: string;  // Category pour le secteur tel que Santé, Education, Transport, Institutions, Entreprise, Particuliers
     UrlTest?: string;  // Champs pour l'Url de test du site internet
-    Rating?: string;    // Qualité du produit
+    Rating?: number;    // Qualité du produit
     Support?: string;  // Temps de maintenace et assitance
     Created?: any
 }

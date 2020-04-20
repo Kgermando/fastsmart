@@ -7,6 +7,7 @@ import { Router } from '@angular/router';
 import { switchMap } from 'rxjs/operators';
 import { ToastService } from '../toast.service';
 import { Permissions } from '../models/permissions.model';
+import { AppUser } from '../models/app-user';
 
 @Injectable({
   providedIn: 'root'
@@ -17,6 +18,9 @@ export class AuthService {
   users$: Observable<User[]>;
   usersCollection: AngularFirestoreCollection<User>;
   errorsData: BehaviorSubject<string> = new BehaviorSubject<string>('');
+
+  // For Shoppint Cart
+  signedInUser$: Observable<firebase.User>;
 
   constructor(
     private afAuth: AngularFireAuth,
@@ -33,6 +37,9 @@ export class AuthService {
         }
       })
     );
+
+     // For Shoppint Cart
+    this.signedInUser$ = afAuth.authState;
   }
 
   getAllUsers() {
@@ -104,6 +111,22 @@ export class AuthService {
       return true;
     }
   }
+
+    // For Shoppint Cart
+  get appUser$(): Observable<AppUser> {
+    return this.signedInUser$
+    .pipe(switchMap(user => {
+      if (user) { return this.getUser(user.uid); }
+
+    return of(null);
+    }));
+  }
+
+  getUser(id: string): Observable<AppUser> {
+    return this.usersCollection.doc(id).valueChanges();
+  }
+
+
    
   canUser(user: User): boolean {
     const allowed = ['manager', 'user'];

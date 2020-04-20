@@ -1,4 +1,11 @@
 
+mat-card-content {
+  cursor: pointer;
+}
+
+mat-card-content :hover {
+  font-weight: bold;
+}
 
 
 @media screen and (min-width: 961px) {
@@ -70,9 +77,10 @@
         margin-bottom: 15px;
         max-width: 400px;
 
-        // .image_avatar {
-        //   width: 100%;
-        // }
+        .image_avatar {
+          // width: 100%;
+          height: 200px;
+        }
 
         mat-card-title {
           color: accent;
@@ -109,6 +117,7 @@
           padding: 10px;
           font-size: 20px;
         }
+        
     
         .submit {
           align-items: center;
@@ -160,6 +169,11 @@
         .example-card {
           margin-bottom: 15px;
           max-width: 400px;
+
+          .image_avatar {
+            // width: 100%;
+            height: 200px;
+          }
     
           .add_panier {
             float: right;
