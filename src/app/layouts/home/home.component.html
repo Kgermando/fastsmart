@@ -15,7 +15,7 @@
         fxLayout="row wrap"
         fxLayout.lt-sm="column"
         fxLayoutGap="8%"
-        fxLayoutAlign="flex-start">
+        fxLayoutAlign="flex-start" *ngIf="products$; else loading">
     <ng-container *ngFor="let product of products$">
       <mat-card class="example-card" fxFlex="0 1 calc(33.3% - 8%)" fxFlex.lt-md="0 1 calc(50% - 8%)" fxFlex.lt-sm="100%">
         <img class="image_avatar" mat-card-image [src]="product.productImageUrl" alt="Photo of a Shiba Inu">
@@ -36,17 +36,26 @@
             {{ product.Rating }}/5
           </button>
 
-              
           <button class="add_panier" mat-raised-button color="accent" matTooltip="Ajoutez au panier" (click)="addToCart()">
             <mat-icon aria-hidden="false" aria-label="Fast Smart panier cart">shopping_cart</mat-icon>
           </button>
         </mat-card-actions>
       </mat-card>
     </ng-container>
-
-    <ng-container #content>
-
-    </ng-container>
   </div>
 
+  <ng-container #loading>
+    <!-- <div class="card_grid"
+    fxLayout="row wrap"
+    fxLayout.lt-sm="column"
+    fxLayoutGap="8%"
+    fxLayoutAlign="flex-start">
+      <div class="item" fxFlex="0 1 calc(33.3% - 8%)" fxFlex.lt-md="0 1 calc(50% - 8%)" fxFlex.lt-sm="100%">
+        <ngx-skeleton-loader count="5" appearance="circle"
+        [theme]="{ width: '400px', height: '300px', 'border-radius': '30px' }"> 
+      </ngx-skeleton-loader>
+      </div>
+  </div> -->
+  </ng-container>
+  
 </section>

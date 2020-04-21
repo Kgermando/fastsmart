@@ -8,7 +8,6 @@ import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { SharedModule } from '../shared/shared.module';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthService } from './services/auth/auth.service';
 
 
@@ -18,8 +17,6 @@ import { AuthService } from './services/auth/auth.service';
   imports: [
     CommonModule,
     AuthRoutingModule,
-    FormsModule,
-    ReactiveFormsModule,
 
     SharedModule
   ],

@@ -5,6 +5,7 @@ import { User, LoginRequest } from '../services/models/user';
 import { PermissionsMap } from '../services/models/permissions.model';
 import { AuthService } from '../services/auth/auth.service';
 import { ToastService } from '../services/toast.service';
+import { SpinnerService } from 'src/app/shared/services/data/spinner.service';
 
 @Component({
   selector: 'app-login',
@@ -18,7 +19,10 @@ export class LoginComponent implements OnInit {
   _user: Observable<User>;
   isLoading = false;
 
-  constructor(public authService: AuthService, private router: Router, private toaster: ToastService) {}
+  constructor(public authService: AuthService,
+              private router: Router, 
+              private toaster: ToastService,
+              private spinnerService: SpinnerService) {}
 
   ngOnInit(): void {
     this._user = this.authService.user$;
@@ -36,11 +40,22 @@ export class LoginComponent implements OnInit {
       .then(value => {
         this.isLoading = false;
         this.router.navigate(['/fastsmart/layouts']);
+        this.openSuccessBar();
       })
       .catch(error => {
         this.toaster.openSnackBar(error.message);
         this.isLoading = false;
       });
+  }
+
+  openSuccessBar() {
+    this.spinnerService.openSnackBar({
+      data: { message: "Login Successful" },
+      duration: 8,
+      panelClass: ["default-snackbar"],
+      horizontalPosition: "right",
+      verticalPosition: "top"
+    });
   }
 
 }

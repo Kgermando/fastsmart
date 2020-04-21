@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
+
 // Angular Material Components
 import {A11yModule} from '@angular/cdk/a11y';
 import {ClipboardModule} from '@angular/cdk/clipboard';
@@ -56,6 +57,7 @@ import { SmartDatePipe } from './services/pipes/smart-date.pipe';
 
 import { NgxSpinnerModule } from "ngx-spinner";
 import { NgxStarRatingModule } from 'ngx-star-rating';
+import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 
 
 @NgModule({
@@ -113,7 +115,8 @@ import { NgxStarRatingModule } from 'ngx-star-rating';
     HttpClientModule,
 
     NgxSpinnerModule,
-    NgxStarRatingModule
+    NgxStarRatingModule,
+    NgxSkeletonLoaderModule,
   ],
   exports: [
     A11yModule,
@@ -166,6 +169,7 @@ import { NgxStarRatingModule } from 'ngx-star-rating';
     
     NgxSpinnerModule,
     NgxStarRatingModule,
+    NgxSkeletonLoaderModule,
 
     // Pipes
     SmartDatePipe,

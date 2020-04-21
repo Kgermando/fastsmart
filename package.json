@@ -33,6 +33,7 @@
     "firebase-functions": "^3.6.0",
     "jspdf": "^1.5.3",
     "ngx-pagination": "^5.0.0",
+    "ngx-skeleton-loader": "^1.2.7",
     "ngx-spinner": "^9.0.2",
     "ngx-star-rating": "0.0.1",
     "rxjs": "~6.5.4",
